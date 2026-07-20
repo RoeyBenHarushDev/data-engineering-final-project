@@ -7,57 +7,57 @@ generated (explicitly allowed by the assignment: "Initial data (can be generated
 
 ## Requirements checklist (from "Data Engineering Final Project.pdf" + "Evaluation criteria.pdf")
 
-Status legend: [ ] pending · [x] DONE (pointer to implementation)
+Status legend: [x] DONE (verified end-to-end locally on 2026-07-20)
 
 ### Required technologies
-- [ ] R1. Apache Iceberg table format for all lake tables
-- [ ] R2. MinIO (S3-compatible) storage organized in bronze/silver/gold layers
-- [ ] R3. Apache Spark for batch processing
-- [ ] R4. Apache Spark Structured Streaming for stream processing
-- [ ] R5. Apache Kafka as real-time data source
-- [ ] R6. Python producer generating Kafka messages
-- [ ] R7. Apache Airflow scheduling the ETL pipelines
-- [ ] R8. Data models defined with mermaid.js
-- [ ] R9. Basic data quality checks implemented
-- [ ] R10. Full documentation + setup instructions, easy to run locally with Docker
-- [ ] R11. Forbidden tech NOT used: no Hive, no HDFS, no unlearned technologies
+- [x] R1. Apache Iceberg table format — all 14 tables `USING iceberg` via REST catalog (`processing/jobs/spark_config.py`)
+- [x] R2. MinIO bronze/silver/gold — bucket `warehouse`, namespaces created in `spark_config.py::ensure_namespaces`
+- [x] R3. Spark batch — `seed_bronze.py`, `bronze_to_silver.py`, `silver_to_gold.py` (verified: 5594+ orders through all layers)
+- [x] R4. Spark streaming — `streaming_ingest.py` (verified: 1969+ events ingested, 30s micro-batches)
+- [x] R5. Kafka real-time source — `streaming/docker-compose.yml`, topic `orders_events`, KRaft mode
+- [x] R6. Python producer — `streaming/producer/producer.py` (verified: ~60 events/min with late-event simulation)
+- [x] R7. Airflow orchestration — `orchestration/dags/` (verified: scheduled + manual runs, all green)
+- [x] R8. mermaid.js data models — `docs/data_model.md` (3 ERDs), `docs/architecture.md`
+- [x] R9. Data quality checks — `data_quality.py` (21 checks; verified: ERROR gate blocks, WARN reports)
+- [x] R10. Docs + simple docker setup — `README.md` quick start = 4 commands
+- [x] R11. No Hive, no HDFS — Iceberg REST catalog + MinIO S3 only
 
 ### Project structure
-- [ ] S1. `/orchestration` — Airflow components
-- [ ] S2. `/streaming` — Kafka and producers
-- [ ] S3. `/processing` — Spark applications
-- [ ] S4. `README.md` at root — how to start the project locally
-- [ ] S5. `docs/` — project documentation
-- [ ] S6. Three separate Docker Compose files (one per component)
-- [ ] S7. Components communicate via a shared Docker network
-- [ ] S8. Spark applications run ONLY on processing containers (disqualification rule)
+- [x] S1. `/orchestration` — Airflow (webserver, scheduler, postgres, init)
+- [x] S2. `/streaming` — Kafka, kafka-init, producer
+- [x] S3. `/processing` — MinIO, Iceberg REST, spark-master + all Spark jobs
+- [x] S4. `README.md` at root with local run instructions
+- [x] S5. `docs/` — architecture, data model, data quality, components
+- [x] S6. Three Docker Compose files, one per component
+- [x] S7. Shared external network `lakehouse` joins all three stacks
+- [x] S8. Spark runs ONLY in `spark-master` (processing) — Airflow submits via `docker exec`, verified in task logs
 
 ### Implementation requirements
-- [ ] I1. Batch data source: at least one dataset loaded into Iceberg tables
-- [ ] I2. Streaming data source: real-time stream through Kafka
-- [ ] I3. Late-arriving data: handle events arriving out of order up to 48h after event time
-- [ ] I4. Batch ETL jobs transforming bronze → silver → gold
-- [ ] I5. Stream processing: real-time processing of Kafka messages
-- [ ] I6. Data quality validation checks at multiple pipeline stages
-- [ ] I7. Fact and dimension tables properly implemented
-- [ ] I8. At least one Type 2 SCD
-- [ ] I9. Airflow DAGs scheduling both batch and streaming jobs
-- [ ] I10. Proper dependencies between DAG tasks
-- [ ] I11. Error handling and alerting in orchestration
+- [x] I1. Batch source — 4 generated CSVs → `bronze.customers_raw/products_raw/orders_raw` (verified: 500/100/5001 rows)
+- [x] I2. Streaming source — producer → Kafka → `bronze.order_events` (verified end-to-end)
+- [x] I3. Late-arriving data — 48h rule in `bronze_to_silver.py::split_events_by_lateness`; late ≤48h merged out of order, >48h quarantined (verified: 112 rows in `silver.order_events_rejected`)
+- [x] I4. Batch ETL bronze→silver→gold — MERGE-based, idempotent (verified: 2 full DAG runs)
+- [x] I5. Stream processing — JSON parse, schema enforcement, exactly-once Iceberg appends (checkpointed)
+- [x] I6. DQ at multiple stages — `dq_bronze`, `dq_silver`, `dq_gold` tasks + audit trail (verified: 42 results in `audit.dq_results`)
+- [x] I7. Fact + dimension tables — `gold.fact_orders`, `dim_customer`, `dim_product`, `dim_date`, `daily_sales`
+- [x] I8. Type 2 SCD — `gold.dim_customer` (verified: day2 snapshot → 40 expired versions, 500 current, 368 facts pinned to historical versions)
+- [x] I9. DAGs for batch + streaming — `batch_etl` (@hourly), `streaming_supervisor` (*/10)
+- [x] I10. Task dependencies — 7-task chain with DQ gates between stages
+- [x] I11. Error handling + alerting — retries (2x), `on_failure_callback` alert (`dags/alerts.py`), streaming start verification with log dump on failure
 
 ### Submission / documentation
-- [ ] D1. README with setup instructions
-- [ ] D2. Architecture diagrams (mermaid)
-- [ ] D3. Data model documentation (bronze, silver, gold)
-- [ ] D4. Component descriptions
-- [ ] D5. Data quality checks documented (must)
-- [ ] D6. Initial data (generated) committed so pipelines can start
-- [ ] D7. GitHub repo with distributed commits, feature branch workflow (user action at push time)
+- [x] D1. README with setup instructions
+- [x] D2. Architecture diagrams (mermaid) — `docs/architecture.md`, README
+- [x] D3. Data model documentation — `docs/data_model.md`
+- [x] D4. Component descriptions — `docs/components.md`
+- [x] D5. Data quality checks documented — `docs/data_quality.md`
+- [x] D6. Initial data committed — `processing/data/*.csv` (regenerable via `generate_initial_data.py`)
+- [x] D7. Git: feature-branch workflow (`develop`), 12 granular commits — push to GitHub + keep committing over time (USER ACTION)
 - [ ] D8. Presentation video, 10 min (USER ACTION — cannot be automated)
 - [ ] D9. Demo video end-to-end without cuts (USER ACTION — cannot be automated)
 
 ### Bonus
-- [ ] B1. Great Expectations data quality checks (implemented)
+- [x] B1. Great Expectations — `ge_quality.py`, 15 expectations over silver+gold (verified: 30 results in `audit.ge_results`)
 - [ ] B2. DataHub lineage (SKIPPED — deliberately; heavy multi-service stack that risks the
       "must run simply on grader's machine" requirement; decision documented in README)
 
