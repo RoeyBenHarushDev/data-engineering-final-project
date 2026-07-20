@@ -1,0 +1,54 @@
+services:
+  kafka:
+    image: apache/kafka:3.7.2
+    container_name: kafka
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,EXTERNAL://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+    ports:
+      - "29092:29092"   # host access for debugging (kafka:9092 inside the network)
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 > /dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+
+  # one-shot job: create the topic with explicit settings
+  kafka-init:
+    image: apache/kafka:3.7.2
+    depends_on:
+      kafka:
+        condition: service_healthy
+    command: >
+      /opt/kafka/bin/kafka-topics.sh --create --if-not-exists
+      --bootstrap-server kafka:9092
+      --topic orders_events --partitions 3 --replication-factor 1
+
+  producer:
+    build: ./producer
+    container_name: order-events-producer
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      KAFKA_BOOTSTRAP: kafka:9092
+      TOPIC: orders_events
+      EVENTS_PER_MINUTE: "60"
+      LATE_EVENT_RATIO: "0.15"      # events arriving 1-47h after event_time (accepted)
+      VERY_LATE_EVENT_RATIO: "0.05" # events arriving >48h after event_time (quarantined)
+    restart: unless-stopped
+
+networks:
+  default:
+    name: lakehouse
+    external: true
