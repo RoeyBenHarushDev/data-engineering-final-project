@@ -1,0 +1,17 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# airflow runtime
+orchestration/logs/
+orchestration/dags/__pycache__/
+
+# spark / local runtime leftovers
+spark-warehouse/
+checkpoints/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
