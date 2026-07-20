@@ -1,0 +1,501 @@
+customer_id,full_name,email,city,segment,signup_date,updated_at
+1,Daniel Levi,daniel.levi.1@example.com,Netanya,consumer,2025-08-16,2026-05-01 00:00:00
+2,Tamar Malka,tamar.malka.2@example.com,Jerusalem,premium,2024-09-20,2026-05-01 00:00:00
+3,Maya Azulay,maya.azulay.3@example.com,Petah Tikva,business,2026-03-02,2026-05-02 00:00:00
+4,Maya Peretz,maya.peretz.4@example.com,Beer Sheva,premium,2024-07-24,2026-05-01 00:00:00
+5,Noa Shapiro,noa.shapiro.5@example.com,Beer Sheva,premium,2024-06-05,2026-05-01 00:00:00
+6,Uri Friedman,uri.friedman.6@example.com,Beer Sheva,business,2024-08-06,2026-05-01 00:00:00
+7,Lia Harel,lia.harel.7@example.com,Tel Aviv,consumer,2025-01-24,2026-05-01 00:00:00
+8,Roni Biton,roni.biton.8@example.com,Haifa,consumer,2025-04-22,2026-05-01 00:00:00
+9,Daniel Cohen,daniel.cohen.9@example.com,Holon,consumer,2025-03-30,2026-05-01 00:00:00
+10,Amit Azulay,amit.azulay.10@example.com,Netanya,consumer,2024-12-17,2026-05-01 00:00:00
+11,Uri Cohen,uri.cohen.11@example.com,Holon,consumer,2024-09-13,2026-05-01 00:00:00
+12,Eitan Segal,eitan.segal.12@example.com,Herzliya,business,2024-08-18,2026-05-01 00:00:00
+13,Shira Malka,shira.malka.13@example.com,Jerusalem,consumer,2024-05-24,2026-05-01 00:00:00
+14,Omer Harel,omer.harel.14@example.com,Netanya,consumer,2025-08-06,2026-05-01 00:00:00
+15,Daniel Friedman,daniel.friedman.15@example.com,Netanya,business,2024-06-20,2026-05-01 00:00:00
+16,Amit Mizrahi,amit.mizrahi.16@example.com,Ashdod,business,2025-08-30,2026-05-01 00:00:00
+17,Lia Malka,lia.malka.17@example.com,Jerusalem,premium,2024-06-20,2026-05-01 00:00:00
+18,Yoni Shapiro,yoni.shapiro.18@example.com,Beer Sheva,consumer,2024-12-14,2026-05-01 00:00:00
+19,Yael Biton,yael.biton.19@example.com,Petah Tikva,consumer,2025-05-04,2026-05-01 00:00:00
+20,Adam Peretz,adam.peretz.20@example.com,Tel Aviv,business,2025-02-15,2026-05-01 00:00:00
+21,Lia Cohen,lia.cohen.21@example.com,Beer Sheva,premium,2025-05-14,2026-05-01 00:00:00
+22,Shira Dahan,shira.dahan.22@example.com,Rishon LeZion,business,2024-06-12,2026-05-01 00:00:00
+23,Gal Mizrahi,gal.mizrahi.23@example.com,Netanya,consumer,2025-07-23,2026-05-01 00:00:00
+24,Uri Shapiro,uri.shapiro.24@example.com,Netanya,premium,2024-08-11,2026-05-01 00:00:00
+25,Ido Baruch,ido.baruch.25@example.com,Herzliya,business,2025-03-27,2026-05-01 00:00:00
+26,Omer Mizrahi,omer.mizrahi.26@example.com,Netanya,consumer,2025-12-29,2026-05-02 00:00:00
+27,Adam Segal,adam.segal.27@example.com,Haifa,consumer,2024-06-28,2026-05-02 00:00:00
+28,Yoni Harel,yoni.harel.28@example.com,Holon,premium,2026-01-26,2026-05-01 00:00:00
+29,Yael Friedman,yael.friedman.29@example.com,Herzliya,business,2024-10-07,2026-05-01 00:00:00
+30,Lia Shapiro,lia.shapiro.30@example.com,Tel Aviv,premium,2025-12-05,2026-05-01 00:00:00
+31,Uri Harel,uri.harel.31@example.com,Netanya,premium,2025-04-18,2026-05-01 00:00:00
+32,Daniel Biton,daniel.biton.32@example.com,Holon,consumer,2024-12-23,2026-05-01 00:00:00
+33,Noa Malka,noa.malka.33@example.com,Netanya,premium,2025-10-01,2026-05-01 00:00:00
+34,Dana Baruch,dana.baruch.34@example.com,Jerusalem,premium,2025-05-31,2026-05-01 00:00:00
+35,Dana Azulay,dana.azulay.35@example.com,Beer Sheva,consumer,2025-03-15,2026-05-01 00:00:00
+36,Yoni Shapiro,yoni.shapiro.36@example.com,Petah Tikva,consumer,2024-07-27,2026-05-01 00:00:00
+37,Roni Katz,roni.katz.37@example.com,Tel Aviv,consumer,2025-03-26,2026-05-01 00:00:00
+38,Eitan Peretz,eitan.peretz.38@example.com,Tel Aviv,consumer,2024-08-29,2026-05-01 00:00:00
+39,Maya Cohen,maya.cohen.39@example.com,Rishon LeZion,consumer,2024-10-03,2026-05-01 00:00:00
+40,Tamar Mizrahi,tamar.mizrahi.40@example.com,Rishon LeZion,premium,2025-10-14,2026-05-01 00:00:00
+41,Lia Shapiro,lia.shapiro.41@example.com,Herzliya,business,2025-08-28,2026-05-01 00:00:00
+42,Uri Harel,uri.harel.42@example.com,Beer Sheva,premium,2025-05-17,2026-05-01 00:00:00
+43,Yael Dahan,yael.dahan.43@example.com,Ashdod,business,2024-10-19,2026-05-01 00:00:00
+44,Gal Cohen,gal.cohen.44@example.com,Beer Sheva,consumer,2026-01-26,2026-05-01 00:00:00
+45,Roni Levi,roni.levi.45@example.com,Herzliya,premium,2025-08-09,2026-05-01 00:00:00
+46,Michal Peretz,michal.peretz.46@example.com,Tel Aviv,consumer,2024-06-24,2026-05-01 00:00:00
+47,Adam Peretz,adam.peretz.47@example.com,Jerusalem,consumer,2025-04-28,2026-05-01 00:00:00
+48,Maya Shapiro,maya.shapiro.48@example.com,Beer Sheva,business,2024-05-16,2026-05-01 00:00:00
+49,Noam Peretz,noam.peretz.49@example.com,Petah Tikva,consumer,2024-08-25,2026-05-01 00:00:00
+50,Michal Katz,michal.katz.50@example.com,Beer Sheva,business,2025-02-09,2026-05-01 00:00:00
+51,Shira Cohen,shira.cohen.51@example.com,Jerusalem,premium,2025-01-15,2026-05-01 00:00:00
+52,Amit Friedman,amit.friedman.52@example.com,Beer Sheva,business,2026-02-05,2026-05-02 00:00:00
+53,Daniel Levi,daniel.levi.53@example.com,Holon,premium,2025-04-19,2026-05-01 00:00:00
+54,Daniel Peretz,daniel.peretz.54@example.com,Beer Sheva,consumer,2024-09-29,2026-05-01 00:00:00
+55,Gal Mizrahi,gal.mizrahi.55@example.com,Holon,consumer,2025-06-20,2026-05-01 00:00:00
+56,Gal Peretz,gal.peretz.56@example.com,Tel Aviv,business,2024-09-15,2026-05-02 00:00:00
+57,Daniel Levi,daniel.levi.57@example.com,Petah Tikva,consumer,2025-12-27,2026-05-01 00:00:00
+58,Omer Mizrahi,omer.mizrahi.58@example.com,Holon,business,2024-11-25,2026-05-01 00:00:00
+59,Shira Segal,shira.segal.59@example.com,Holon,consumer,2025-10-15,2026-05-01 00:00:00
+60,Yael Levi,yael.levi.60@example.com,Holon,business,2024-12-22,2026-05-01 00:00:00
+61,Eitan Friedman,eitan.friedman.61@example.com,Petah Tikva,premium,2024-11-19,2026-05-01 00:00:00
+62,Tamar Peretz,tamar.peretz.62@example.com,Netanya,consumer,2026-02-01,2026-05-01 00:00:00
+63,Michal Malka,michal.malka.63@example.com,Petah Tikva,consumer,2025-05-15,2026-05-01 00:00:00
+64,Adam Levi,adam.levi.64@example.com,Herzliya,business,2024-11-03,2026-05-01 00:00:00
+65,Dana Mizrahi,dana.mizrahi.65@example.com,Tel Aviv,premium,2026-01-09,2026-05-01 00:00:00
+66,Yoni Cohen,yoni.cohen.66@example.com,Herzliya,consumer,2025-08-04,2026-05-01 00:00:00
+67,Yael Cohen,yael.cohen.67@example.com,Herzliya,consumer,2024-08-17,2026-05-01 00:00:00
+68,Ben Levi,ben.levi.68@example.com,Herzliya,consumer,2025-01-27,2026-05-01 00:00:00
+69,Michal Azulay,michal.azulay.69@example.com,Petah Tikva,business,2025-07-08,2026-05-01 00:00:00
+70,Shira Dahan,shira.dahan.70@example.com,Ashdod,consumer,2025-07-04,2026-05-01 00:00:00
+71,Yael Mizrahi,yael.mizrahi.71@example.com,Haifa,consumer,2025-05-13,2026-05-02 00:00:00
+72,Maya Levi,maya.levi.72@example.com,Rishon LeZion,premium,2024-09-02,2026-05-01 00:00:00
+73,Daniel Cohen,daniel.cohen.73@example.com,Petah Tikva,consumer,2024-10-30,2026-05-01 00:00:00
+74,Lia Mizrahi,lia.mizrahi.74@example.com,Ashdod,consumer,2025-07-25,2026-05-01 00:00:00
+75,Amit Biton,amit.biton.75@example.com,Haifa,business,2024-09-22,2026-05-01 00:00:00
+76,Eitan Azulay,eitan.azulay.76@example.com,Petah Tikva,consumer,2024-05-18,2026-05-01 00:00:00
+77,Uri Biton,uri.biton.77@example.com,Jerusalem,consumer,2025-07-05,2026-05-01 00:00:00
+78,Daniel Baruch,daniel.baruch.78@example.com,Jerusalem,premium,2024-09-12,2026-05-01 00:00:00
+79,Tamar Biton,tamar.biton.79@example.com,Netanya,premium,2025-08-29,2026-05-01 00:00:00
+80,Roni Peretz,roni.peretz.80@example.com,Netanya,premium,2024-11-17,2026-05-01 00:00:00
+81,Lia Baruch,lia.baruch.81@example.com,Jerusalem,consumer,2024-06-21,2026-05-02 00:00:00
+82,Ido Segal,ido.segal.82@example.com,Netanya,consumer,2026-03-29,2026-05-01 00:00:00
+83,Roni Harel,roni.harel.83@example.com,Haifa,premium,2025-07-07,2026-05-01 00:00:00
+84,Yoni Malka,yoni.malka.84@example.com,Rishon LeZion,premium,2025-01-19,2026-05-01 00:00:00
+85,Uri Levi,uri.levi.85@example.com,Jerusalem,consumer,2025-10-31,2026-05-01 00:00:00
+86,Uri Levi,uri.levi.86@example.com,Ashdod,premium,2024-09-13,2026-05-01 00:00:00
+87,Tamar Friedman,tamar.friedman.87@example.com,Haifa,consumer,2025-05-21,2026-05-01 00:00:00
+88,Amit Baruch,amit.baruch.88@example.com,Tel Aviv,business,2025-08-29,2026-05-01 00:00:00
+89,Omer Dahan,omer.dahan.89@example.com,Jerusalem,business,2024-09-05,2026-05-01 00:00:00
+90,Ido Azulay,ido.azulay.90@example.com,Haifa,consumer,2025-10-17,2026-05-01 00:00:00
+91,Yoni Baruch,yoni.baruch.91@example.com,Holon,consumer,2025-09-30,2026-05-01 00:00:00
+92,Roni Harel,roni.harel.92@example.com,Holon,premium,2025-07-21,2026-05-01 00:00:00
+93,Lia Mizrahi,lia.mizrahi.93@example.com,Jerusalem,business,2026-02-21,2026-05-01 00:00:00
+94,Noam Peretz,noam.peretz.94@example.com,Beer Sheva,business,2025-04-08,2026-05-01 00:00:00
+95,Eitan Segal,eitan.segal.95@example.com,Beer Sheva,consumer,2026-03-08,2026-05-01 00:00:00
+96,Shira Friedman,shira.friedman.96@example.com,Ashdod,business,2026-01-20,2026-05-01 00:00:00
+97,Lia Avraham,lia.avraham.97@example.com,Petah Tikva,business,2024-09-29,2026-05-01 00:00:00
+98,Roni Levi,roni.levi.98@example.com,Jerusalem,business,2025-10-01,2026-05-01 00:00:00
+99,Michal Biton,michal.biton.99@example.com,Tel Aviv,consumer,2024-07-30,2026-05-01 00:00:00
+100,Ido Avraham,ido.avraham.100@example.com,Ashdod,business,2024-07-20,2026-05-01 00:00:00
+101,Dana Cohen,dana.cohen.101@example.com,Holon,premium,2025-09-19,2026-05-01 00:00:00
+102,Lia Levi,lia.levi.102@example.com,Holon,consumer,2024-10-16,2026-05-01 00:00:00
+103,Uri Dahan,uri.dahan.103@example.com,Beer Sheva,business,2025-01-15,2026-05-01 00:00:00
+104,Maya Dahan,maya.dahan.104@example.com,Rishon LeZion,premium,2025-05-15,2026-05-02 00:00:00
+105,Daniel Malka,daniel.malka.105@example.com,Netanya,premium,2025-05-20,2026-05-01 00:00:00
+106,Ido Avraham,ido.avraham.106@example.com,Holon,premium,2025-06-03,2026-05-01 00:00:00
+107,Uri Mizrahi,uri.mizrahi.107@example.com,Beer Sheva,business,2024-05-21,2026-05-01 00:00:00
+108,Yael Dahan,yael.dahan.108@example.com,Haifa,premium,2024-08-27,2026-05-01 00:00:00
+109,Eitan Friedman,eitan.friedman.109@example.com,Petah Tikva,consumer,2025-05-25,2026-05-01 00:00:00
+110,Eitan Peretz,eitan.peretz.110@example.com,Haifa,premium,2024-07-19,2026-05-02 00:00:00
+111,Roni Katz,roni.katz.111@example.com,Rishon LeZion,business,2025-08-26,2026-05-01 00:00:00
+112,Dana Katz,dana.katz.112@example.com,Haifa,premium,2026-01-05,2026-05-01 00:00:00
+113,Eitan Shapiro,eitan.shapiro.113@example.com,Herzliya,business,2025-12-27,2026-05-01 00:00:00
+114,Omer Dahan,omer.dahan.114@example.com,Netanya,consumer,2025-09-10,2026-05-01 00:00:00
+115,Tamar Levi,tamar.levi.115@example.com,Tel Aviv,consumer,2024-12-01,2026-05-01 00:00:00
+116,Ben Segal,ben.segal.116@example.com,Ashdod,business,2025-02-01,2026-05-02 00:00:00
+117,Michal Peretz,michal.peretz.117@example.com,Holon,business,2025-02-16,2026-05-01 00:00:00
+118,Omer Mizrahi,omer.mizrahi.118@example.com,Tel Aviv,consumer,2025-01-21,2026-05-01 00:00:00
+119,Omer Mizrahi,omer.mizrahi.119@example.com,Petah Tikva,business,2026-02-09,2026-05-01 00:00:00
+120,Uri Peretz,uri.peretz.120@example.com,Tel Aviv,consumer,2025-11-16,2026-05-02 00:00:00
+121,Gal Dahan,gal.dahan.121@example.com,Petah Tikva,premium,2024-07-31,2026-05-01 00:00:00
+122,Roni Harel,roni.harel.122@example.com,Rishon LeZion,premium,2024-11-01,2026-05-01 00:00:00
+123,Ido Segal,ido.segal.123@example.com,Ashdod,premium,2025-10-21,2026-05-02 00:00:00
+124,Noam Katz,noam.katz.124@example.com,Netanya,consumer,2024-06-18,2026-05-01 00:00:00
+125,Lia Harel,lia.harel.125@example.com,Haifa,business,2024-06-29,2026-05-02 00:00:00
+126,Omer Biton,omer.biton.126@example.com,Rishon LeZion,consumer,2025-06-13,2026-05-01 00:00:00
+127,Omer Biton,omer.biton.127@example.com,Ashdod,business,2024-09-25,2026-05-01 00:00:00
+128,Maya Mizrahi,maya.mizrahi.128@example.com,Haifa,consumer,2025-03-05,2026-05-01 00:00:00
+129,Tamar Malka,tamar.malka.129@example.com,Beer Sheva,consumer,2025-02-01,2026-05-01 00:00:00
+130,Ido Avraham,ido.avraham.130@example.com,Petah Tikva,business,2025-01-31,2026-05-01 00:00:00
+131,Adam Peretz,adam.peretz.131@example.com,Holon,business,2024-08-11,2026-05-01 00:00:00
+132,Noa Segal,noa.segal.132@example.com,Herzliya,business,2024-11-29,2026-05-01 00:00:00
+133,Noa Avraham,noa.avraham.133@example.com,Netanya,business,2025-01-27,2026-05-01 00:00:00
+134,Uri Malka,uri.malka.134@example.com,Petah Tikva,premium,2025-08-19,2026-05-01 00:00:00
+135,Noam Peretz,noam.peretz.135@example.com,Netanya,business,2024-11-20,2026-05-01 00:00:00
+136,Noa Friedman,noa.friedman.136@example.com,Ashdod,premium,2025-02-11,2026-05-01 00:00:00
+137,Yoni Segal,yoni.segal.137@example.com,Rishon LeZion,consumer,2024-07-03,2026-05-01 00:00:00
+138,Uri Levi,uri.levi.138@example.com,Holon,premium,2024-09-01,2026-05-01 00:00:00
+139,Noa Cohen,noa.cohen.139@example.com,Petah Tikva,business,2024-12-15,2026-05-02 00:00:00
+140,Yoni Levi,yoni.levi.140@example.com,Holon,premium,2025-05-01,2026-05-02 00:00:00
+141,Shira Katz,shira.katz.141@example.com,Ashdod,business,2025-03-09,2026-05-01 00:00:00
+142,Lia Harel,lia.harel.142@example.com,Holon,business,2026-01-08,2026-05-01 00:00:00
+143,Noam Levi,noam.levi.143@example.com,Petah Tikva,consumer,2025-04-08,2026-05-01 00:00:00
+144,Omer Dahan,omer.dahan.144@example.com,Jerusalem,premium,2026-02-19,2026-05-01 00:00:00
+145,Noa Peretz,noa.peretz.145@example.com,Beer Sheva,consumer,2024-07-04,2026-05-01 00:00:00
+146,Tamar Peretz,tamar.peretz.146@example.com,Haifa,business,2024-05-16,2026-05-01 00:00:00
+147,Daniel Azulay,daniel.azulay.147@example.com,Beer Sheva,business,2025-07-13,2026-05-01 00:00:00
+148,Amit Mizrahi,amit.mizrahi.148@example.com,Herzliya,premium,2025-12-05,2026-05-01 00:00:00
+149,Yoni Biton,yoni.biton.149@example.com,Jerusalem,premium,2026-03-06,2026-05-01 00:00:00
+150,Eitan Azulay,eitan.azulay.150@example.com,Holon,business,2025-09-10,2026-05-01 00:00:00
+151,Maya Azulay,maya.azulay.151@example.com,Beer Sheva,consumer,2025-05-28,2026-05-01 00:00:00
+152,Ben Harel,ben.harel.152@example.com,Jerusalem,premium,2026-02-18,2026-05-01 00:00:00
+153,Amit Shapiro,amit.shapiro.153@example.com,Holon,premium,2025-03-18,2026-05-01 00:00:00
+154,Maya Shapiro,maya.shapiro.154@example.com,Ashdod,consumer,2025-01-26,2026-05-01 00:00:00
+155,Noam Cohen,noam.cohen.155@example.com,Holon,business,2024-06-20,2026-05-01 00:00:00
+156,Gal Malka,gal.malka.156@example.com,Haifa,business,2025-10-03,2026-05-01 00:00:00
+157,Dana Dahan,dana.dahan.157@example.com,Netanya,premium,2024-09-27,2026-05-01 00:00:00
+158,Noam Katz,noam.katz.158@example.com,Holon,premium,2024-08-03,2026-05-01 00:00:00
+159,Lia Avraham,lia.avraham.159@example.com,Beer Sheva,consumer,2025-06-20,2026-05-01 00:00:00
+160,Gal Peretz,gal.peretz.160@example.com,Rishon LeZion,premium,2024-07-16,2026-05-01 00:00:00
+161,Yael Avraham,yael.avraham.161@example.com,Tel Aviv,business,2025-05-04,2026-05-01 00:00:00
+162,Yoni Katz,yoni.katz.162@example.com,Beer Sheva,business,2025-07-11,2026-05-01 00:00:00
+163,Roni Biton,roni.biton.163@example.com,Herzliya,premium,2025-06-23,2026-05-01 00:00:00
+164,Uri Levi,uri.levi.164@example.com,Petah Tikva,consumer,2026-01-04,2026-05-01 00:00:00
+165,Omer Malka,omer.malka.165@example.com,Holon,business,2024-09-10,2026-05-01 00:00:00
+166,Omer Malka,omer.malka.166@example.com,Rishon LeZion,premium,2024-11-15,2026-05-01 00:00:00
+167,Gal Harel,gal.harel.167@example.com,Tel Aviv,consumer,2025-06-04,2026-05-01 00:00:00
+168,Omer Friedman,omer.friedman.168@example.com,Beer Sheva,business,2024-05-22,2026-05-01 00:00:00
+169,Michal Avraham,michal.avraham.169@example.com,Rishon LeZion,premium,2024-10-05,2026-05-01 00:00:00
+170,Amit Friedman,amit.friedman.170@example.com,Netanya,business,2025-04-06,2026-05-02 00:00:00
+171,Gal Biton,gal.biton.171@example.com,Netanya,business,2025-08-08,2026-05-01 00:00:00
+172,Daniel Malka,daniel.malka.172@example.com,Beer Sheva,business,2025-11-30,2026-05-01 00:00:00
+173,Uri Harel,uri.harel.173@example.com,Haifa,consumer,2025-08-23,2026-05-01 00:00:00
+174,Noam Biton,noam.biton.174@example.com,Herzliya,premium,2024-07-29,2026-05-01 00:00:00
+175,Eitan Cohen,eitan.cohen.175@example.com,Beer Sheva,business,2025-08-12,2026-05-01 00:00:00
+176,Amit Mizrahi,amit.mizrahi.176@example.com,Netanya,consumer,2024-10-02,2026-05-01 00:00:00
+177,Tamar Biton,tamar.biton.177@example.com,Tel Aviv,consumer,2024-09-12,2026-05-01 00:00:00
+178,Eitan Malka,eitan.malka.178@example.com,Haifa,premium,2024-11-15,2026-05-01 00:00:00
+179,Daniel Segal,daniel.segal.179@example.com,Tel Aviv,premium,2025-06-14,2026-05-01 00:00:00
+180,Noam Katz,noam.katz.180@example.com,Rishon LeZion,business,2025-09-25,2026-05-01 00:00:00
+181,Adam Biton,adam.biton.181@example.com,Rishon LeZion,consumer,2026-01-25,2026-05-01 00:00:00
+182,Yael Katz,yael.katz.182@example.com,Jerusalem,premium,2024-06-26,2026-05-01 00:00:00
+183,Adam Mizrahi,adam.mizrahi.183@example.com,Haifa,premium,2025-05-25,2026-05-01 00:00:00
+184,Maya Peretz,maya.peretz.184@example.com,Jerusalem,premium,2025-01-30,2026-05-01 00:00:00
+185,Ben Azulay,ben.azulay.185@example.com,Herzliya,consumer,2024-10-13,2026-05-01 00:00:00
+186,Yael Katz,yael.katz.186@example.com,Rishon LeZion,business,2024-08-07,2026-05-01 00:00:00
+187,Ido Biton,ido.biton.187@example.com,Herzliya,premium,2026-01-30,2026-05-01 00:00:00
+188,Ben Malka,ben.malka.188@example.com,Jerusalem,consumer,2024-06-30,2026-05-01 00:00:00
+189,Shira Biton,shira.biton.189@example.com,Jerusalem,consumer,2025-07-30,2026-05-01 00:00:00
+190,Yoni Shapiro,yoni.shapiro.190@example.com,Jerusalem,consumer,2026-03-30,2026-05-01 00:00:00
+191,Ido Katz,ido.katz.191@example.com,Herzliya,business,2025-06-07,2026-05-01 00:00:00
+192,Adam Peretz,adam.peretz.192@example.com,Netanya,premium,2025-06-16,2026-05-01 00:00:00
+193,Gal Cohen,gal.cohen.193@example.com,Beer Sheva,business,2024-06-30,2026-05-01 00:00:00
+194,Michal Dahan,michal.dahan.194@example.com,Beer Sheva,business,2025-12-05,2026-05-01 00:00:00
+195,Uri Peretz,uri.peretz.195@example.com,Haifa,business,2025-11-07,2026-05-01 00:00:00
+196,Maya Levi,maya.levi.196@example.com,Haifa,business,2024-07-31,2026-05-01 00:00:00
+197,Michal Baruch,michal.baruch.197@example.com,Netanya,business,2025-11-25,2026-05-01 00:00:00
+198,Gal Malka,gal.malka.198@example.com,Netanya,premium,2025-02-13,2026-05-01 00:00:00
+199,Lia Shapiro,lia.shapiro.199@example.com,Petah Tikva,business,2025-01-08,2026-05-01 00:00:00
+200,Maya Azulay,maya.azulay.200@example.com,Tel Aviv,business,2025-05-06,2026-05-01 00:00:00
+201,Ben Biton,ben.biton.201@example.com,Tel Aviv,consumer,2025-08-10,2026-05-01 00:00:00
+202,Michal Azulay,michal.azulay.202@example.com,Tel Aviv,premium,2025-06-30,2026-05-01 00:00:00
+203,Michal Levi,michal.levi.203@example.com,Haifa,business,2024-10-17,2026-05-01 00:00:00
+204,Gal Baruch,gal.baruch.204@example.com,Netanya,consumer,2024-08-10,2026-05-01 00:00:00
+205,Ido Dahan,ido.dahan.205@example.com,Rishon LeZion,consumer,2024-12-06,2026-05-01 00:00:00
+206,Amit Friedman,amit.friedman.206@example.com,Ashdod,business,2024-05-15,2026-05-01 00:00:00
+207,Daniel Segal,daniel.segal.207@example.com,Haifa,business,2025-02-04,2026-05-01 00:00:00
+208,Noam Biton,noam.biton.208@example.com,Holon,premium,2026-02-23,2026-05-01 00:00:00
+209,Gal Cohen,gal.cohen.209@example.com,Tel Aviv,business,2025-05-05,2026-05-02 00:00:00
+210,Daniel Harel,daniel.harel.210@example.com,Holon,premium,2026-03-31,2026-05-01 00:00:00
+211,Uri Katz,uri.katz.211@example.com,Holon,consumer,2025-09-21,2026-05-01 00:00:00
+212,Dana Avraham,dana.avraham.212@example.com,Netanya,business,2024-06-30,2026-05-02 00:00:00
+213,Gal Harel,gal.harel.213@example.com,Tel Aviv,consumer,2025-07-02,2026-05-01 00:00:00
+214,Uri Mizrahi,uri.mizrahi.214@example.com,Netanya,business,2024-11-21,2026-05-01 00:00:00
+215,Daniel Levi,daniel.levi.215@example.com,Herzliya,consumer,2025-10-21,2026-05-01 00:00:00
+216,Eitan Shapiro,eitan.shapiro.216@example.com,Tel Aviv,premium,2025-02-08,2026-05-01 00:00:00
+217,Maya Peretz,maya.peretz.217@example.com,Jerusalem,business,2025-12-02,2026-05-01 00:00:00
+218,Tamar Katz,tamar.katz.218@example.com,Netanya,premium,2025-06-26,2026-05-01 00:00:00
+219,Ido Segal,ido.segal.219@example.com,Rishon LeZion,business,2025-07-26,2026-05-01 00:00:00
+220,Gal Shapiro,gal.shapiro.220@example.com,Haifa,business,2025-09-18,2026-05-01 00:00:00
+221,Ben Shapiro,ben.shapiro.221@example.com,Haifa,consumer,2025-06-23,2026-05-01 00:00:00
+222,Ido Avraham,ido.avraham.222@example.com,Petah Tikva,business,2026-03-30,2026-05-01 00:00:00
+223,Eitan Malka,eitan.malka.223@example.com,Netanya,premium,2024-08-16,2026-05-01 00:00:00
+224,Noam Segal,noam.segal.224@example.com,Haifa,business,2024-09-27,2026-05-01 00:00:00
+225,Noam Avraham,noam.avraham.225@example.com,Ashdod,premium,2024-09-22,2026-05-01 00:00:00
+226,Yael Katz,yael.katz.226@example.com,Ashdod,consumer,2025-07-31,2026-05-01 00:00:00
+227,Michal Friedman,michal.friedman.227@example.com,Beer Sheva,business,2026-02-16,2026-05-01 00:00:00
+228,Roni Malka,roni.malka.228@example.com,Rishon LeZion,premium,2025-03-07,2026-05-01 00:00:00
+229,Yael Dahan,yael.dahan.229@example.com,Haifa,business,2026-02-23,2026-05-01 00:00:00
+230,Tamar Shapiro,tamar.shapiro.230@example.com,Herzliya,business,2025-12-20,2026-05-01 00:00:00
+231,Gal Cohen,gal.cohen.231@example.com,Petah Tikva,business,2026-03-17,2026-05-01 00:00:00
+232,Tamar Friedman,tamar.friedman.232@example.com,Haifa,consumer,2024-12-07,2026-05-01 00:00:00
+233,Lia Avraham,lia.avraham.233@example.com,Herzliya,premium,2025-02-18,2026-05-01 00:00:00
+234,Maya Segal,maya.segal.234@example.com,Ashdod,premium,2024-10-02,2026-05-01 00:00:00
+235,Yael Avraham,yael.avraham.235@example.com,Rishon LeZion,premium,2026-02-24,2026-05-01 00:00:00
+236,Ben Cohen,ben.cohen.236@example.com,Beer Sheva,premium,2025-06-11,2026-05-01 00:00:00
+237,Omer Malka,omer.malka.237@example.com,Jerusalem,business,2025-12-22,2026-05-01 00:00:00
+238,Daniel Katz,daniel.katz.238@example.com,Haifa,premium,2025-05-30,2026-05-01 00:00:00
+239,Noa Levi,noa.levi.239@example.com,Ashdod,consumer,2025-06-05,2026-05-01 00:00:00
+240,Amit Avraham,amit.avraham.240@example.com,Holon,consumer,2025-07-25,2026-05-01 00:00:00
+241,Dana Friedman,dana.friedman.241@example.com,Herzliya,premium,2025-09-29,2026-05-01 00:00:00
+242,Yoni Mizrahi,yoni.mizrahi.242@example.com,Netanya,business,2025-03-06,2026-05-02 00:00:00
+243,Ben Dahan,ben.dahan.243@example.com,Beer Sheva,business,2024-08-12,2026-05-01 00:00:00
+244,Tamar Peretz,tamar.peretz.244@example.com,Rishon LeZion,premium,2025-07-15,2026-05-01 00:00:00
+245,Gal Biton,gal.biton.245@example.com,Tel Aviv,business,2025-06-11,2026-05-01 00:00:00
+246,Uri Mizrahi,uri.mizrahi.246@example.com,Rishon LeZion,business,2025-04-13,2026-05-02 00:00:00
+247,Michal Biton,michal.biton.247@example.com,Holon,premium,2025-07-19,2026-05-01 00:00:00
+248,Gal Segal,gal.segal.248@example.com,Netanya,consumer,2025-03-04,2026-05-01 00:00:00
+249,Noam Cohen,noam.cohen.249@example.com,Beer Sheva,business,2024-08-24,2026-05-01 00:00:00
+250,Amit Azulay,amit.azulay.250@example.com,Netanya,premium,2025-06-03,2026-05-01 00:00:00
+251,Noa Segal,noa.segal.251@example.com,Holon,business,2026-03-24,2026-05-01 00:00:00
+252,Michal Segal,michal.segal.252@example.com,Tel Aviv,premium,2024-11-09,2026-05-01 00:00:00
+253,Eitan Harel,eitan.harel.253@example.com,Beer Sheva,premium,2025-04-06,2026-05-01 00:00:00
+254,Omer Dahan,omer.dahan.254@example.com,Beer Sheva,premium,2025-07-19,2026-05-01 00:00:00
+255,Tamar Dahan,tamar.dahan.255@example.com,Jerusalem,premium,2024-06-09,2026-05-01 00:00:00
+256,Adam Biton,adam.biton.256@example.com,Rishon LeZion,consumer,2024-08-16,2026-05-01 00:00:00
+257,Amit Malka,amit.malka.257@example.com,Haifa,consumer,2025-06-03,2026-05-01 00:00:00
+258,Roni Malka,roni.malka.258@example.com,Holon,consumer,2025-09-08,2026-05-01 00:00:00
+259,Tamar Harel,tamar.harel.259@example.com,Petah Tikva,business,2024-10-05,2026-05-01 00:00:00
+260,Dana Baruch,dana.baruch.260@example.com,Netanya,consumer,2025-07-12,2026-05-01 00:00:00
+261,Noam Harel,noam.harel.261@example.com,Netanya,premium,2025-04-20,2026-05-01 00:00:00
+262,Daniel Katz,daniel.katz.262@example.com,Jerusalem,consumer,2025-08-13,2026-05-01 00:00:00
+263,Yael Segal,yael.segal.263@example.com,Petah Tikva,business,2025-12-30,2026-05-01 00:00:00
+264,Yael Levi,yael.levi.264@example.com,Netanya,premium,2025-11-26,2026-05-01 00:00:00
+265,Gal Avraham,gal.avraham.265@example.com,Netanya,premium,2025-03-07,2026-05-01 00:00:00
+266,Amit Cohen,amit.cohen.266@example.com,Beer Sheva,business,2026-03-07,2026-05-01 00:00:00
+267,Ben Baruch,ben.baruch.267@example.com,Petah Tikva,business,2024-07-16,2026-05-01 00:00:00
+268,Omer Dahan,omer.dahan.268@example.com,Jerusalem,premium,2024-12-12,2026-05-01 00:00:00
+269,Eitan Dahan,eitan.dahan.269@example.com,Holon,consumer,2025-11-09,2026-05-01 00:00:00
+270,Adam Levi,adam.levi.270@example.com,Netanya,business,2025-12-04,2026-05-01 00:00:00
+271,Daniel Peretz,daniel.peretz.271@example.com,Petah Tikva,consumer,2025-02-28,2026-05-01 00:00:00
+272,Gal Avraham,gal.avraham.272@example.com,Jerusalem,consumer,2024-08-08,2026-05-02 00:00:00
+273,Tamar Baruch,tamar.baruch.273@example.com,Holon,premium,2025-12-21,2026-05-01 00:00:00
+274,Noam Azulay,noam.azulay.274@example.com,Holon,business,2026-02-27,2026-05-01 00:00:00
+275,Amit Peretz,amit.peretz.275@example.com,Rishon LeZion,business,2025-08-03,2026-05-01 00:00:00
+276,Amit Cohen,amit.cohen.276@example.com,Haifa,premium,2024-06-10,2026-05-02 00:00:00
+277,Amit Levi,amit.levi.277@example.com,Holon,business,2025-09-19,2026-05-01 00:00:00
+278,Daniel Segal,daniel.segal.278@example.com,Rishon LeZion,consumer,2024-05-23,2026-05-01 00:00:00
+279,Shira Dahan,shira.dahan.279@example.com,Herzliya,consumer,2026-02-09,2026-05-01 00:00:00
+280,Roni Peretz,roni.peretz.280@example.com,Haifa,premium,2025-09-03,2026-05-01 00:00:00
+281,Maya Segal,maya.segal.281@example.com,Petah Tikva,consumer,2024-08-09,2026-05-01 00:00:00
+282,Shira Segal,shira.segal.282@example.com,Petah Tikva,consumer,2025-11-01,2026-05-02 00:00:00
+283,Ben Levi,ben.levi.283@example.com,Netanya,consumer,2025-11-19,2026-05-01 00:00:00
+284,Uri Biton,uri.biton.284@example.com,Haifa,consumer,2024-05-25,2026-05-01 00:00:00
+285,Noa Mizrahi,noa.mizrahi.285@example.com,Tel Aviv,business,2025-08-01,2026-05-01 00:00:00
+286,Michal Avraham,michal.avraham.286@example.com,Tel Aviv,consumer,2025-07-04,2026-05-01 00:00:00
+287,Adam Mizrahi,adam.mizrahi.287@example.com,Holon,premium,2025-12-06,2026-05-01 00:00:00
+288,Maya Katz,maya.katz.288@example.com,Tel Aviv,consumer,2024-10-23,2026-05-02 00:00:00
+289,Michal Cohen,michal.cohen.289@example.com,Rishon LeZion,premium,2025-08-18,2026-05-01 00:00:00
+290,Ben Levi,ben.levi.290@example.com,Petah Tikva,business,2024-12-18,2026-05-01 00:00:00
+291,Noa Levi,noa.levi.291@example.com,Rishon LeZion,business,2025-01-20,2026-05-01 00:00:00
+292,Daniel Katz,daniel.katz.292@example.com,Rishon LeZion,consumer,2026-01-09,2026-05-01 00:00:00
+293,Roni Azulay,roni.azulay.293@example.com,Haifa,consumer,2025-11-23,2026-05-01 00:00:00
+294,Lia Azulay,lia.azulay.294@example.com,Herzliya,premium,2025-05-04,2026-05-01 00:00:00
+295,Yael Azulay,yael.azulay.295@example.com,Petah Tikva,business,2024-12-23,2026-05-01 00:00:00
+296,Dana Azulay,dana.azulay.296@example.com,Holon,consumer,2025-12-05,2026-05-01 00:00:00
+297,Uri Malka,uri.malka.297@example.com,Beer Sheva,business,2024-12-25,2026-05-01 00:00:00
+298,Omer Friedman,omer.friedman.298@example.com,Ashdod,business,2025-02-17,2026-05-01 00:00:00
+299,Ido Malka,ido.malka.299@example.com,Jerusalem,business,2025-01-19,2026-05-01 00:00:00
+300,Roni Dahan,roni.dahan.300@example.com,Netanya,business,2025-10-27,2026-05-01 00:00:00
+301,Noam Cohen,noam.cohen.301@example.com,Petah Tikva,consumer,2025-12-27,2026-05-02 00:00:00
+302,Ido Cohen,ido.cohen.302@example.com,Ashdod,consumer,2024-09-09,2026-05-01 00:00:00
+303,Adam Azulay,adam.azulay.303@example.com,Petah Tikva,premium,2025-04-29,2026-05-01 00:00:00
+304,Daniel Friedman,daniel.friedman.304@example.com,Ashdod,premium,2025-01-23,2026-05-01 00:00:00
+305,Adam Biton,adam.biton.305@example.com,Herzliya,business,2025-04-06,2026-05-01 00:00:00
+306,Daniel Azulay,daniel.azulay.306@example.com,Petah Tikva,consumer,2025-10-25,2026-05-01 00:00:00
+307,Noam Peretz,noam.peretz.307@example.com,Jerusalem,business,2024-09-09,2026-05-01 00:00:00
+308,Amit Cohen,amit.cohen.308@example.com,Netanya,premium,2025-08-13,2026-05-01 00:00:00
+309,Ido Segal,ido.segal.309@example.com,Petah Tikva,premium,2024-07-12,2026-05-01 00:00:00
+310,Uri Levi,uri.levi.310@example.com,Herzliya,premium,2025-07-02,2026-05-01 00:00:00
+311,Noa Mizrahi,noa.mizrahi.311@example.com,Netanya,premium,2025-05-20,2026-05-01 00:00:00
+312,Roni Avraham,roni.avraham.312@example.com,Tel Aviv,consumer,2025-11-06,2026-05-01 00:00:00
+313,Michal Dahan,michal.dahan.313@example.com,Holon,consumer,2025-11-07,2026-05-01 00:00:00
+314,Noa Cohen,noa.cohen.314@example.com,Petah Tikva,consumer,2025-03-12,2026-05-01 00:00:00
+315,Ido Katz,ido.katz.315@example.com,Ashdod,consumer,2025-03-19,2026-05-01 00:00:00
+316,Eitan Malka,eitan.malka.316@example.com,Holon,consumer,2024-07-30,2026-05-02 00:00:00
+317,Maya Baruch,maya.baruch.317@example.com,Tel Aviv,consumer,2025-10-22,2026-05-01 00:00:00
+318,Ben Levi,ben.levi.318@example.com,Jerusalem,business,2025-01-03,2026-05-01 00:00:00
+319,Ido Katz,ido.katz.319@example.com,Herzliya,business,2025-02-01,2026-05-01 00:00:00
+320,Lia Peretz,lia.peretz.320@example.com,Petah Tikva,consumer,2025-04-13,2026-05-01 00:00:00
+321,Ido Cohen,ido.cohen.321@example.com,Netanya,premium,2024-08-02,2026-05-01 00:00:00
+322,Noam Shapiro,noam.shapiro.322@example.com,Netanya,consumer,2025-08-19,2026-05-01 00:00:00
+323,Yael Azulay,yael.azulay.323@example.com,Tel Aviv,consumer,2025-09-04,2026-05-01 00:00:00
+324,Eitan Peretz,eitan.peretz.324@example.com,Haifa,business,2025-06-09,2026-05-01 00:00:00
+325,Roni Cohen,roni.cohen.325@example.com,Tel Aviv,business,2025-01-16,2026-05-01 00:00:00
+326,Yoni Mizrahi,yoni.mizrahi.326@example.com,Holon,premium,2025-08-09,2026-05-01 00:00:00
+327,Dana Shapiro,dana.shapiro.327@example.com,Netanya,consumer,2025-02-19,2026-05-02 00:00:00
+328,Adam Friedman,adam.friedman.328@example.com,Tel Aviv,business,2026-01-12,2026-05-01 00:00:00
+329,Roni Azulay,roni.azulay.329@example.com,Holon,premium,2025-02-11,2026-05-01 00:00:00
+330,Ido Biton,ido.biton.330@example.com,Jerusalem,business,2026-03-11,2026-05-01 00:00:00
+331,Roni Mizrahi,roni.mizrahi.331@example.com,Herzliya,business,2025-03-27,2026-05-01 00:00:00
+332,Maya Friedman,maya.friedman.332@example.com,Jerusalem,consumer,2025-01-10,2026-05-01 00:00:00
+333,Michal Friedman,michal.friedman.333@example.com,Petah Tikva,consumer,2025-02-20,2026-05-01 00:00:00
+334,Eitan Malka,eitan.malka.334@example.com,Ashdod,consumer,2025-04-25,2026-05-01 00:00:00
+335,Yoni Cohen,yoni.cohen.335@example.com,Beer Sheva,consumer,2025-12-06,2026-05-02 00:00:00
+336,Dana Shapiro,dana.shapiro.336@example.com,Beer Sheva,business,2025-04-07,2026-05-01 00:00:00
+337,Tamar Peretz,tamar.peretz.337@example.com,Jerusalem,consumer,2025-07-13,2026-05-01 00:00:00
+338,Shira Mizrahi,shira.mizrahi.338@example.com,Herzliya,consumer,2024-05-30,2026-05-01 00:00:00
+339,Maya Mizrahi,maya.mizrahi.339@example.com,Rishon LeZion,business,2024-09-01,2026-05-01 00:00:00
+340,Michal Katz,michal.katz.340@example.com,Herzliya,premium,2024-06-20,2026-05-01 00:00:00
+341,Ben Avraham,ben.avraham.341@example.com,Ashdod,consumer,2025-01-06,2026-05-01 00:00:00
+342,Maya Katz,maya.katz.342@example.com,Rishon LeZion,premium,2025-05-26,2026-05-01 00:00:00
+343,Lia Azulay,lia.azulay.343@example.com,Petah Tikva,premium,2024-10-29,2026-05-02 00:00:00
+344,Maya Biton,maya.biton.344@example.com,Rishon LeZion,business,2026-02-22,2026-05-01 00:00:00
+345,Adam Avraham,adam.avraham.345@example.com,Netanya,consumer,2024-06-10,2026-05-01 00:00:00
+346,Maya Azulay,maya.azulay.346@example.com,Herzliya,premium,2025-03-04,2026-05-01 00:00:00
+347,Gal Azulay,gal.azulay.347@example.com,Petah Tikva,premium,2026-02-18,2026-05-01 00:00:00
+348,Gal Baruch,gal.baruch.348@example.com,Herzliya,premium,2025-09-21,2026-05-01 00:00:00
+349,Roni Azulay,roni.azulay.349@example.com,Herzliya,premium,2025-10-29,2026-05-02 00:00:00
+350,Adam Katz,adam.katz.350@example.com,Jerusalem,business,2026-01-05,2026-05-01 00:00:00
+351,Dana Dahan,dana.dahan.351@example.com,Haifa,consumer,2025-07-22,2026-05-01 00:00:00
+352,Gal Katz,gal.katz.352@example.com,Petah Tikva,premium,2024-07-16,2026-05-01 00:00:00
+353,Yoni Avraham,yoni.avraham.353@example.com,Ashdod,business,2025-03-01,2026-05-01 00:00:00
+354,Ido Harel,ido.harel.354@example.com,Ashdod,premium,2024-07-28,2026-05-01 00:00:00
+355,Adam Harel,adam.harel.355@example.com,Ashdod,consumer,2025-04-29,2026-05-01 00:00:00
+356,Daniel Shapiro,daniel.shapiro.356@example.com,Holon,business,2025-07-17,2026-05-01 00:00:00
+357,Ben Segal,ben.segal.357@example.com,Ashdod,business,2026-01-08,2026-05-02 00:00:00
+358,Michal Dahan,michal.dahan.358@example.com,Haifa,business,2025-05-19,2026-05-01 00:00:00
+359,Yael Mizrahi,yael.mizrahi.359@example.com,Herzliya,premium,2026-01-05,2026-05-01 00:00:00
+360,Eitan Shapiro,eitan.shapiro.360@example.com,Holon,premium,2025-04-30,2026-05-01 00:00:00
+361,Tamar Dahan,tamar.dahan.361@example.com,Petah Tikva,consumer,2024-06-09,2026-05-01 00:00:00
+362,Ido Shapiro,ido.shapiro.362@example.com,Ashdod,consumer,2025-03-26,2026-05-01 00:00:00
+363,Eitan Mizrahi,eitan.mizrahi.363@example.com,Beer Sheva,business,2024-11-20,2026-05-01 00:00:00
+364,Shira Peretz,shira.peretz.364@example.com,Haifa,consumer,2026-01-12,2026-05-01 00:00:00
+365,Eitan Segal,eitan.segal.365@example.com,Jerusalem,premium,2024-09-26,2026-05-01 00:00:00
+366,Dana Levi,dana.levi.366@example.com,Ashdod,premium,2025-11-18,2026-05-01 00:00:00
+367,Ben Friedman,ben.friedman.367@example.com,Haifa,consumer,2025-09-28,2026-05-01 00:00:00
+368,Ben Harel,ben.harel.368@example.com,Ashdod,consumer,2025-01-08,2026-05-02 00:00:00
+369,Adam Friedman,adam.friedman.369@example.com,Ashdod,premium,2025-08-01,2026-05-01 00:00:00
+370,Gal Azulay,gal.azulay.370@example.com,Netanya,premium,2024-12-28,2026-05-01 00:00:00
+371,Omer Shapiro,omer.shapiro.371@example.com,Beer Sheva,business,2024-12-07,2026-05-01 00:00:00
+372,Shira Avraham,shira.avraham.372@example.com,Herzliya,business,2024-12-15,2026-05-01 00:00:00
+373,Eitan Harel,eitan.harel.373@example.com,Holon,premium,2024-10-08,2026-05-01 00:00:00
+374,Ido Mizrahi,ido.mizrahi.374@example.com,Beer Sheva,premium,2025-11-11,2026-05-01 00:00:00
+375,Lia Levi,lia.levi.375@example.com,Rishon LeZion,business,2024-09-11,2026-05-01 00:00:00
+376,Daniel Malka,daniel.malka.376@example.com,Petah Tikva,consumer,2025-06-14,2026-05-01 00:00:00
+377,Maya Harel,maya.harel.377@example.com,Haifa,business,2024-12-27,2026-05-01 00:00:00
+378,Dana Mizrahi,dana.mizrahi.378@example.com,Holon,consumer,2025-08-17,2026-05-01 00:00:00
+379,Gal Baruch,gal.baruch.379@example.com,Ashdod,consumer,2025-02-01,2026-05-01 00:00:00
+380,Adam Friedman,adam.friedman.380@example.com,Beer Sheva,business,2025-08-03,2026-05-02 00:00:00
+381,Yael Cohen,yael.cohen.381@example.com,Ashdod,consumer,2026-03-04,2026-05-01 00:00:00
+382,Roni Baruch,roni.baruch.382@example.com,Jerusalem,premium,2024-06-05,2026-05-01 00:00:00
+383,Roni Harel,roni.harel.383@example.com,Petah Tikva,premium,2026-02-21,2026-05-02 00:00:00
+384,Eitan Baruch,eitan.baruch.384@example.com,Rishon LeZion,premium,2025-11-10,2026-05-01 00:00:00
+385,Noam Katz,noam.katz.385@example.com,Herzliya,consumer,2026-01-10,2026-05-01 00:00:00
+386,Noa Biton,noa.biton.386@example.com,Beer Sheva,consumer,2024-09-17,2026-05-01 00:00:00
+387,Ben Shapiro,ben.shapiro.387@example.com,Holon,consumer,2025-06-10,2026-05-01 00:00:00
+388,Omer Biton,omer.biton.388@example.com,Jerusalem,consumer,2025-07-31,2026-05-01 00:00:00
+389,Ido Dahan,ido.dahan.389@example.com,Herzliya,business,2026-01-27,2026-05-01 00:00:00
+390,Daniel Segal,daniel.segal.390@example.com,Rishon LeZion,premium,2024-09-30,2026-05-01 00:00:00
+391,Noa Dahan,noa.dahan.391@example.com,Petah Tikva,premium,2025-07-28,2026-05-01 00:00:00
+392,Tamar Biton,tamar.biton.392@example.com,Holon,consumer,2024-07-11,2026-05-01 00:00:00
+393,Amit Peretz,amit.peretz.393@example.com,Herzliya,business,2025-09-22,2026-05-01 00:00:00
+394,Maya Shapiro,maya.shapiro.394@example.com,Ashdod,consumer,2024-10-10,2026-05-01 00:00:00
+395,Uri Shapiro,uri.shapiro.395@example.com,Holon,premium,2026-03-12,2026-05-02 00:00:00
+396,Yael Segal,yael.segal.396@example.com,Rishon LeZion,consumer,2024-06-20,2026-05-01 00:00:00
+397,Yael Avraham,yael.avraham.397@example.com,Netanya,premium,2026-03-16,2026-05-01 00:00:00
+398,Amit Harel,amit.harel.398@example.com,Jerusalem,business,2025-07-29,2026-05-01 00:00:00
+399,Daniel Harel,daniel.harel.399@example.com,Herzliya,premium,2025-04-26,2026-05-01 00:00:00
+400,Tamar Levi,tamar.levi.400@example.com,Ashdod,premium,2025-04-20,2026-05-01 00:00:00
+401,Yoni Segal,yoni.segal.401@example.com,Rishon LeZion,premium,2024-11-27,2026-05-01 00:00:00
+402,Yoni Harel,yoni.harel.402@example.com,Haifa,consumer,2024-12-19,2026-05-01 00:00:00
+403,Adam Biton,adam.biton.403@example.com,Beer Sheva,consumer,2025-09-09,2026-05-01 00:00:00
+404,Adam Avraham,adam.avraham.404@example.com,Netanya,premium,2025-02-18,2026-05-01 00:00:00
+405,Uri Katz,uri.katz.405@example.com,Netanya,consumer,2024-06-08,2026-05-01 00:00:00
+406,Shira Biton,shira.biton.406@example.com,Ashdod,consumer,2024-05-30,2026-05-01 00:00:00
+407,Roni Biton,roni.biton.407@example.com,Jerusalem,business,2025-01-09,2026-05-01 00:00:00
+408,Yael Malka,yael.malka.408@example.com,Rishon LeZion,business,2025-04-19,2026-05-01 00:00:00
+409,Yoni Katz,yoni.katz.409@example.com,Rishon LeZion,business,2024-10-17,2026-05-01 00:00:00
+410,Lia Harel,lia.harel.410@example.com,Jerusalem,premium,2025-01-22,2026-05-01 00:00:00
+411,Maya Friedman,maya.friedman.411@example.com,Herzliya,consumer,2024-09-20,2026-05-01 00:00:00
+412,Eitan Avraham,eitan.avraham.412@example.com,Jerusalem,consumer,2025-05-01,2026-05-01 00:00:00
+413,Eitan Biton,eitan.biton.413@example.com,Rishon LeZion,premium,2025-01-20,2026-05-01 00:00:00
+414,Yoni Malka,yoni.malka.414@example.com,Rishon LeZion,business,2024-12-30,2026-05-01 00:00:00
+415,Adam Malka,adam.malka.415@example.com,Ashdod,premium,2025-01-11,2026-05-01 00:00:00
+416,Lia Dahan,lia.dahan.416@example.com,Tel Aviv,consumer,2024-05-14,2026-05-01 00:00:00
+417,Yael Avraham,yael.avraham.417@example.com,Petah Tikva,premium,2025-10-20,2026-05-01 00:00:00
+418,Noa Mizrahi,noa.mizrahi.418@example.com,Herzliya,premium,2025-01-08,2026-05-01 00:00:00
+419,Adam Mizrahi,adam.mizrahi.419@example.com,Jerusalem,consumer,2024-06-10,2026-05-01 00:00:00
+420,Amit Avraham,amit.avraham.420@example.com,Holon,premium,2026-02-27,2026-05-01 00:00:00
+421,Ben Mizrahi,ben.mizrahi.421@example.com,Rishon LeZion,business,2025-03-17,2026-05-01 00:00:00
+422,Gal Harel,gal.harel.422@example.com,Jerusalem,premium,2025-11-12,2026-05-01 00:00:00
+423,Dana Avraham,dana.avraham.423@example.com,Holon,business,2024-06-05,2026-05-01 00:00:00
+424,Lia Peretz,lia.peretz.424@example.com,Petah Tikva,consumer,2025-09-23,2026-05-02 00:00:00
+425,Noam Shapiro,noam.shapiro.425@example.com,Holon,premium,2025-12-02,2026-05-01 00:00:00
+426,Lia Harel,lia.harel.426@example.com,Netanya,premium,2024-12-31,2026-05-01 00:00:00
+427,Shira Azulay,shira.azulay.427@example.com,Netanya,premium,2024-11-15,2026-05-01 00:00:00
+428,Shira Cohen,shira.cohen.428@example.com,Haifa,consumer,2024-12-25,2026-05-01 00:00:00
+429,Yoni Baruch,yoni.baruch.429@example.com,Rishon LeZion,consumer,2025-05-09,2026-05-01 00:00:00
+430,Amit Malka,amit.malka.430@example.com,Jerusalem,premium,2024-09-23,2026-05-01 00:00:00
+431,Eitan Baruch,eitan.baruch.431@example.com,Netanya,consumer,2024-06-17,2026-05-01 00:00:00
+432,Yoni Harel,yoni.harel.432@example.com,Ashdod,premium,2025-08-15,2026-05-01 00:00:00
+433,Daniel Peretz,daniel.peretz.433@example.com,Haifa,consumer,2024-11-12,2026-05-01 00:00:00
+434,Noa Avraham,noa.avraham.434@example.com,Petah Tikva,premium,2025-03-20,2026-05-01 00:00:00
+435,Gal Harel,gal.harel.435@example.com,Petah Tikva,consumer,2024-07-14,2026-05-01 00:00:00
+436,Maya Cohen,maya.cohen.436@example.com,Netanya,business,2024-11-27,2026-05-01 00:00:00
+437,Dana Friedman,dana.friedman.437@example.com,Holon,premium,2026-01-16,2026-05-01 00:00:00
+438,Tamar Avraham,tamar.avraham.438@example.com,Jerusalem,business,2024-12-10,2026-05-01 00:00:00
+439,Dana Avraham,dana.avraham.439@example.com,Haifa,premium,2024-06-15,2026-05-01 00:00:00
+440,Michal Mizrahi,michal.mizrahi.440@example.com,Haifa,business,2024-11-03,2026-05-01 00:00:00
+441,Adam Segal,adam.segal.441@example.com,Jerusalem,premium,2025-10-27,2026-05-01 00:00:00
+442,Eitan Mizrahi,eitan.mizrahi.442@example.com,Haifa,business,2025-08-14,2026-05-01 00:00:00
+443,Amit Shapiro,amit.shapiro.443@example.com,Netanya,consumer,2025-07-19,2026-05-01 00:00:00
+444,Shira Dahan,shira.dahan.444@example.com,Petah Tikva,business,2025-11-24,2026-05-01 00:00:00
+445,Eitan Azulay,eitan.azulay.445@example.com,Petah Tikva,consumer,2024-11-03,2026-05-01 00:00:00
+446,Yoni Azulay,yoni.azulay.446@example.com,Herzliya,consumer,2025-10-08,2026-05-01 00:00:00
+447,Ben Malka,ben.malka.447@example.com,Herzliya,business,2024-09-01,2026-05-01 00:00:00
+448,Adam Segal,adam.segal.448@example.com,Tel Aviv,consumer,2026-02-14,2026-05-01 00:00:00
+449,Michal Biton,michal.biton.449@example.com,Beer Sheva,premium,2025-01-30,2026-05-01 00:00:00
+450,Ben Dahan,ben.dahan.450@example.com,Tel Aviv,business,2024-06-28,2026-05-01 00:00:00
+451,Uri Biton,uri.biton.451@example.com,Netanya,business,2025-07-25,2026-05-01 00:00:00
+452,Yael Biton,yael.biton.452@example.com,Rishon LeZion,consumer,2026-01-30,2026-05-01 00:00:00
+453,Yoni Katz,yoni.katz.453@example.com,Holon,business,2024-12-12,2026-05-01 00:00:00
+454,Shira Avraham,shira.avraham.454@example.com,Herzliya,consumer,2025-05-16,2026-05-01 00:00:00
+455,Roni Malka,roni.malka.455@example.com,Ashdod,business,2025-11-19,2026-05-01 00:00:00
+456,Amit Shapiro,amit.shapiro.456@example.com,Petah Tikva,consumer,2025-05-10,2026-05-01 00:00:00
+457,Omer Katz,omer.katz.457@example.com,Jerusalem,business,2024-12-27,2026-05-01 00:00:00
+458,Omer Mizrahi,omer.mizrahi.458@example.com,Jerusalem,consumer,2025-06-08,2026-05-01 00:00:00
+459,Yael Segal,yael.segal.459@example.com,Herzliya,business,2025-07-21,2026-05-01 00:00:00
+460,Yoni Segal,yoni.segal.460@example.com,Ashdod,premium,2025-05-16,2026-05-01 00:00:00
+461,Shira Harel,shira.harel.461@example.com,Haifa,business,2024-10-21,2026-05-01 00:00:00
+462,Gal Katz,gal.katz.462@example.com,Netanya,business,2026-03-09,2026-05-01 00:00:00
+463,Maya Friedman,maya.friedman.463@example.com,Petah Tikva,business,2025-07-29,2026-05-01 00:00:00
+464,Shira Azulay,shira.azulay.464@example.com,Beer Sheva,consumer,2026-02-09,2026-05-02 00:00:00
+465,Eitan Katz,eitan.katz.465@example.com,Herzliya,premium,2024-05-13,2026-05-01 00:00:00
+466,Noam Biton,noam.biton.466@example.com,Petah Tikva,consumer,2025-12-12,2026-05-01 00:00:00
+467,Ido Mizrahi,ido.mizrahi.467@example.com,Netanya,premium,2025-03-23,2026-05-01 00:00:00
+468,Yael Avraham,yael.avraham.468@example.com,Tel Aviv,business,2026-02-08,2026-05-01 00:00:00
+469,Michal Shapiro,michal.shapiro.469@example.com,Beer Sheva,business,2024-09-12,2026-05-01 00:00:00
+470,Eitan Cohen,eitan.cohen.470@example.com,Holon,premium,2024-12-26,2026-05-01 00:00:00
+471,Uri Biton,uri.biton.471@example.com,Herzliya,premium,2024-07-15,2026-05-01 00:00:00
+472,Daniel Mizrahi,daniel.mizrahi.472@example.com,Jerusalem,business,2025-03-15,2026-05-01 00:00:00
+473,Roni Shapiro,roni.shapiro.473@example.com,Ashdod,consumer,2025-09-10,2026-05-01 00:00:00
+474,Ben Shapiro,ben.shapiro.474@example.com,Holon,premium,2026-02-19,2026-05-01 00:00:00
+475,Adam Levi,adam.levi.475@example.com,Haifa,premium,2025-04-25,2026-05-01 00:00:00
+476,Noam Shapiro,noam.shapiro.476@example.com,Jerusalem,consumer,2024-07-20,2026-05-02 00:00:00
+477,Dana Mizrahi,dana.mizrahi.477@example.com,Ashdod,premium,2025-05-10,2026-05-01 00:00:00
+478,Yoni Friedman,yoni.friedman.478@example.com,Petah Tikva,premium,2025-05-30,2026-05-02 00:00:00
+479,Michal Avraham,michal.avraham.479@example.com,Petah Tikva,premium,2024-10-03,2026-05-01 00:00:00
+480,Noam Malka,noam.malka.480@example.com,Herzliya,business,2024-12-01,2026-05-01 00:00:00
+481,Noa Avraham,noa.avraham.481@example.com,Ashdod,premium,2025-12-10,2026-05-01 00:00:00
+482,Ido Azulay,ido.azulay.482@example.com,Netanya,premium,2024-06-26,2026-05-01 00:00:00
+483,Noa Azulay,noa.azulay.483@example.com,Rishon LeZion,business,2024-05-30,2026-05-01 00:00:00
+484,Michal Azulay,michal.azulay.484@example.com,Beer Sheva,premium,2026-02-08,2026-05-01 00:00:00
+485,Michal Katz,michal.katz.485@example.com,Haifa,premium,2024-06-26,2026-05-01 00:00:00
+486,Ben Harel,ben.harel.486@example.com,Holon,consumer,2025-07-27,2026-05-01 00:00:00
+487,Adam Azulay,adam.azulay.487@example.com,Jerusalem,consumer,2026-03-13,2026-05-01 00:00:00
+488,Gal Avraham,gal.avraham.488@example.com,Holon,consumer,2025-02-03,2026-05-01 00:00:00
+489,Shira Friedman,shira.friedman.489@example.com,Petah Tikva,premium,2024-12-05,2026-05-01 00:00:00
+490,Adam Malka,adam.malka.490@example.com,Haifa,premium,2025-09-01,2026-05-01 00:00:00
+491,Uri Avraham,uri.avraham.491@example.com,Rishon LeZion,premium,2025-03-12,2026-05-01 00:00:00
+492,Roni Mizrahi,roni.mizrahi.492@example.com,Rishon LeZion,premium,2025-04-16,2026-05-01 00:00:00
+493,Uri Avraham,uri.avraham.493@example.com,Netanya,premium,2024-11-22,2026-05-01 00:00:00
+494,Shira Peretz,shira.peretz.494@example.com,Jerusalem,premium,2025-05-31,2026-05-02 00:00:00
+495,Omer Biton,omer.biton.495@example.com,Netanya,premium,2025-09-01,2026-05-01 00:00:00
+496,Noam Avraham,noam.avraham.496@example.com,Rishon LeZion,business,2024-09-05,2026-05-01 00:00:00
+497,Lia Biton,lia.biton.497@example.com,Jerusalem,premium,2024-09-22,2026-05-01 00:00:00
+498,Yael Baruch,yael.baruch.498@example.com,Holon,business,2025-11-03,2026-05-01 00:00:00
+499,Eitan Levi,eitan.levi.499@example.com,Netanya,premium,2026-01-11,2026-05-01 00:00:00
+500,Amit Baruch,amit.baruch.500@example.com,Rishon LeZion,premium,2025-07-13,2026-05-01 00:00:00
