@@ -62,6 +62,10 @@ def main():
         .select("e.*", "kafka_partition", "kafka_offset")
         .filter(F.col("event_id").isNotNull())  # drop unparseable payloads
         .withColumn("_ingested_at", F.current_timestamp())
+        # Iceberg requires the exact column order of the target table
+        .select("event_id", "order_id", "customer_id", "product_id", "quantity",
+                "unit_price", "status", "event_time", "produced_at", "_ingested_at",
+                "kafka_partition", "kafka_offset")
     )
 
     query = (
