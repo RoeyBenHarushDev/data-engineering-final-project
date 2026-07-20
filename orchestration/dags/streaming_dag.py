@@ -19,11 +19,13 @@ default_args = {
     "on_failure_callback": task_failure_alert,
 }
 
-# /proc scan instead of pgrep so no extra packages are needed in the Spark image
+# /proc scan instead of pgrep so no extra packages are needed in the Spark image.
+# The bracketed pattern streaming_ingest[.]py cannot match the literal text of the
+# checking command itself, so the check never self-matches.
 ENSURE_RUNNING = r"""
 set -e
 RUNNING=$(docker exec spark-master bash -c \
-  "grep -sl streaming_ingest /proc/[0-9]*/cmdline | head -n 1" || true)
+  "grep -sl 'streaming_ingest[.]py' /proc/[0-9]*/cmdline | head -n 1" || true)
 if [ -n "$RUNNING" ]; then
     echo "streaming_ingest already running ($RUNNING)"
 else
@@ -33,7 +35,7 @@ else
        >> /tmp/streaming_ingest.log 2>&1 &"
     sleep 20
     docker exec spark-master bash -c \
-      "grep -sl streaming_ingest /proc/[0-9]*/cmdline | head -n 1" > /dev/null \
+      "grep -sl 'streaming_ingest[.]py' /proc/[0-9]*/cmdline | head -n 1" > /dev/null \
       || { echo 'streaming job failed to start, log tail:'; \
            docker exec spark-master tail -n 50 /tmp/streaming_ingest.log; exit 1; }
     echo "streaming job started"
