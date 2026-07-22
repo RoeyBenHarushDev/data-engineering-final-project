@@ -19,3 +19,6 @@ Thumbs.db
 # local tooling / course handouts (not part of the submission)
 .claude/
 *.pdf
+
+# packed submissions
+*.zip
