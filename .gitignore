@@ -22,3 +22,8 @@ Thumbs.db
 
 # packed submissions
 *.zip
+
+# private recording aids (not part of the submission)
+presentation.html
+presentation_script.html
+demo_walkthrough.html
