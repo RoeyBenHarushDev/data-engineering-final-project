@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Platform Verification Guide — E-commerce Lakehouse</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --card: #ffffff; --text: #1c2330; --muted: #5b6474;
+    --accent: #1f6feb; --ok: #1a7f37; --warn: #9a6700; --border: #d8dee6;
+    --code-bg: #0f172a; --code-text: #e2e8f0; --chip: #eef2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --card: #161b22; --text: #e6edf3; --muted: #9aa4b2;
+      --accent: #4493f8; --ok: #3fb950; --warn: #d29922; --border: #30363d;
+      --code-bg: #010409; --code-text: #dbe4ee; --chip: #21262d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 "Segoe UI", system-ui, sans-serif;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 1.9rem; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); margin-bottom: 28px; }
+  h2 {
+    font-size: 1.25rem; margin: 40px 0 12px; padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+  }
+  h2 .n {
+    display: inline-block; background: var(--accent); color: #fff;
+    border-radius: 50%; width: 28px; height: 28px; text-align: center;
+    line-height: 28px; font-size: .95rem; margin-right: 8px;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px; margin: 14px 0;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+  th { background: var(--chip); }
+  code {
+    background: var(--chip); padding: 2px 6px; border-radius: 5px;
+    font: .88em Consolas, monospace;
+  }
+  pre {
+    background: var(--code-bg); color: var(--code-text); padding: 14px 16px;
+    border-radius: 8px; overflow-x: auto; font: .85rem/1.55 Consolas, monospace;
+  }
+  pre code { background: none; padding: 0; color: inherit; }
+  .expect {
+    border-left: 4px solid var(--ok); background: var(--card);
+    border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0;
+  }
+  .expect b { color: var(--ok); }
+  .note {
+    border-left: 4px solid var(--warn); background: var(--card);
+    border-radius: 0 8px 8px 0; padding: 10px 14px; margin: 10px 0;
+  }
+  .note b { color: var(--warn); }
+  a { color: var(--accent); }
+  .toc { columns: 2; gap: 30px; }
+  .toc a { text-decoration: none; }
+  @media (max-width: 640px) { .toc { columns: 1; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Platform Verification Guide</h1>
+<p class="subtitle">E-commerce Lakehouse — Kafka · Spark · Iceberg · MinIO · Airflow.
+Follow the steps in order; each one says exactly what you should see if the platform works.</p>
+
+<div class="card">
+  <b>Credentials &amp; URLs (everything is local)</b>
+  <table>
+    <tr><th>Service</th><th>URL</th><th>Username</th><th>Password</th></tr>
+    <tr><td>Airflow UI</td><td><a href="http://localhost:8090">http://localhost:8090</a></td><td><code>admin</code></td><td><code>admin</code></td></tr>
+    <tr><td>MinIO Console</td><td><a href="http://localhost:9001">http://localhost:9001</a></td><td><code>admin</code></td><td><code>password</code></td></tr>
+    <tr><td>Iceberg REST catalog</td><td><a href="http://localhost:8181/v1/config">http://localhost:8181/v1/config</a></td><td colspan="2">no auth (JSON health response)</td></tr>
+    <tr><td>Spark UI</td><td><a href="http://localhost:4040">http://localhost:4040</a></td><td colspan="2">no auth (only while a Spark job is running)</td></tr>
+    <tr><td>Kafka (from host)</td><td><code>localhost:29092</code></td><td colspan="2">no auth (PLAINTEXT)</td></tr>
+  </table>
+</div>
+
+<h2>Contents</h2>
+<div class="toc card">
+  <a href="#start">1. Start the platform</a><br>
+  <a href="#containers">2. Check all containers</a><br>
+  <a href="#kafka">3. Kafka &amp; producer</a><br>
+  <a href="#airflow">4. Airflow &amp; the two DAGs</a><br>
+  <a href="#streaming">5. Streaming into bronze</a><br>
+  <a href="#batch">6. Batch run &amp; the layers</a><br>
+  <a href="#late">7. Late-data handling</a><br>
+  <a href="#scd2">8. SCD2 demo</a><br>
+  <a href="#dq">9. Data quality &amp; Great Expectations</a><br>
+  <a href="#minio">10. MinIO files</a><br>
+  <a href="#trouble">Troubleshooting</a><br>
+  <a href="#stop">Shutdown</a>
+</div>
+
+<h2 id="start"><span class="n">1</span>Start the platform</h2>
+<p>From the project root (skip the first command if the network already exists):</p>
+<pre><code>docker network create lakehouse
+docker compose -f processing/docker-compose.yml up -d --build
+docker compose -f streaming/docker-compose.yml up -d --build
+docker compose -f orchestration/docker-compose.yml up -d --build</code></pre>
+<div class="expect"><b>Expected:</b> no errors; first build takes a few minutes, later starts are seconds.</div>
+
+<h2 id="containers"><span class="n">2</span>Check all containers</h2>
+<pre><code>docker ps --format "{{.Names}}: {{.Status}}"</code></pre>
+<div class="expect"><b>Expected — 7 running containers:</b> <code>spark-master</code>, <code>iceberg-rest</code>,
+<code>minio</code> (healthy), <code>kafka</code> (healthy), <code>order-events-producer</code>,
+<code>airflow-webserver</code>, <code>airflow-scheduler</code>, plus <code>airflow-db</code> (healthy).
+The <code>*-init</code> containers exit with code 0 — that is normal, they are one-shot setup jobs.</div>
+
+<h2 id="kafka"><span class="n">3</span>Kafka &amp; producer</h2>
+<p>The producer emits order lifecycle events (created → paid → shipped → completed) around the clock:</p>
+<pre><code>docker logs --tail 5 order-events-producer</code></pre>
+<div class="expect"><b>Expected:</b> lines like <code>150 events sent (last: ORD-S… shipped at …)</code>.</div>
+<p>Read messages straight from the topic:</p>
+<pre><code>docker exec kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic orders_events --from-beginning --max-messages 3 --timeout-ms 15000</code></pre>
+<div class="expect"><b>Expected:</b> 3 JSON events with <code>event_id</code>, <code>order_id</code>, <code>status</code>, <code>event_time</code>.</div>
+
+<h2 id="airflow"><span class="n">4</span>Airflow &amp; the two DAGs</h2>
+<ol>
+  <li>Open <a href="http://localhost:8090">http://localhost:8090</a> and log in with <code>admin</code> / <code>admin</code>.</li>
+  <li>You should see two DAGs: <code>batch_etl</code> and <code>streaming_supervisor</code>.</li>
+  <li>Unpause both with the toggle on the left.</li>
+  <li>Trigger <code>streaming_supervisor</code> first (▶ button), then trigger <code>batch_etl</code>.</li>
+</ol>
+<div class="expect"><b>Expected:</b> <code>streaming_supervisor</code> goes green in ~30 s
+(2 tasks: <code>check_processing_container</code> → <code>ensure_streaming_job_running</code>).
+<code>batch_etl</code> goes green in ~5–6 min (7 tasks:
+<code>load_batch_sources → dq_bronze → bronze_to_silver → dq_silver → silver_to_gold → dq_gold → great_expectations_validation</code>).</div>
+<div class="note"><b>Note:</b> every task runs <code>spark-submit</code> inside the
+<code>spark-master</code> container via <code>docker exec</code> — open any task log in the Airflow
+UI and you can see it; no Spark runs on the Airflow containers.</div>
+
+<h2 id="streaming"><span class="n">5</span>Streaming into bronze</h2>
+<p>After <code>streaming_supervisor</code> has run once, the streaming job appends Kafka events to Iceberg every 30 s:</p>
+<pre><code>docker exec spark-master tail -n 5 /tmp/streaming_ingest.log</code></pre>
+<div class="expect"><b>Expected:</b> recent log lines; look for <code>Committed snapshot</code> entries (Iceberg commits).</div>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py bronze</code></pre>
+<div class="expect"><b>Expected:</b> <code>customers_raw (500)</code>, <code>products_raw (100)</code>,
+<code>orders_raw (5001)</code>, and <code>order_events</code> with a growing count — run it twice a minute
+apart and the number goes up. That is the live stream landing in the lake.</div>
+
+<h2 id="batch"><span class="n">6</span>Batch run &amp; the layers</h2>
+<p>After a green <code>batch_etl</code> run, inspect silver and gold:</p>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py silver
+docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py gold</code></pre>
+<div class="expect"><b>Expected silver:</b> <code>customers (500)</code>, <code>products (100)</code>,
+<code>orders (~5600+, growing with the stream)</code>, <code>order_events</code>, <code>order_events_rejected</code>.<br>
+<b>Expected gold:</b> <code>dim_customer</code>, <code>dim_product (100)</code>, <code>dim_date (365)</code>,
+<code>fact_orders</code> (same count as silver orders), <code>daily_sales</code>.</div>
+<div class="note"><b>Data cleaning proof:</b> bronze <code>orders_raw</code> has 5001 rows but silver has fewer from batch —
+the seed data deliberately contains a negative quantity, a missing customer id, a negative amount and a duplicate
+order id; silver drops them all.</div>
+
+<h2 id="late"><span class="n">7</span>Late-data handling (48h rule)</h2>
+<p>The producer intentionally sends ~15% events 1–47 h old (must be <em>accepted</em>) and ~5% events
+older than 48 h (must be <em>quarantined</em>):</p>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py silver</code></pre>
+<div class="expect"><b>Expected:</b> <code>silver.order_events_rejected</code> is non-empty; every row has
+<code>lateness_hours &gt; 48</code> and reason <i>"arrived more than 48h after event_time"</i>. In
+<code>silver.order_events</code> all rows have <code>lateness_hours ≤ 48</code>.</div>
+
+<h2 id="scd2"><span class="n">8</span>SCD2 demo (customer dimension history)</h2>
+<ol>
+  <li>In Airflow open <code>batch_etl</code> → ▶ → <b>Trigger DAG w/ config</b>.</li>
+  <li>Paste <code>{"snapshot": "day2"}</code> and trigger. Day 2 contains ~40 customers who moved city or changed segment.</li>
+  <li>When the run is green:</li>
+</ol>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py gold</code></pre>
+<div class="expect"><b>Expected:</b> <code>gold.dim_customer</code> grows to 540 rows — 500 current
+(<code>is_current = true</code>) and 40 closed historical versions with <code>effective_to</code> filled.
+Old orders keep pointing at the historical version (that is the point of SCD Type 2).</div>
+
+<h2 id="dq"><span class="n">9</span>Data quality &amp; Great Expectations</h2>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py audit</code></pre>
+<div class="expect"><b>Expected:</b> <code>audit.dq_results</code> — one row per check per run
+(bronze checks include WARN findings for the planted dirty rows; silver/gold checks all
+<code>passed = true</code>). <code>audit.ge_results</code> — 15 Great Expectations results per run, all
+<code>success = true</code>.</div>
+<div class="note"><b>Negative test (optional):</b> the DQ gates really block — if a silver ERROR check
+ever fails, the DAG stops before gold and the task shows the failing check name in its log.</div>
+
+<h2 id="minio"><span class="n">10</span>MinIO files (the physical lake)</h2>
+<ol>
+  <li>Open <a href="http://localhost:9001">http://localhost:9001</a>, log in <code>admin</code> / <code>password</code>.</li>
+  <li>Browse the <code>warehouse</code> bucket.</li>
+</ol>
+<div class="expect"><b>Expected:</b> folders per namespace (<code>bronze</code>, <code>silver</code>,
+<code>gold</code>, <code>audit</code>), each table with <code>data/</code> (parquet files) and
+<code>metadata/</code> (Iceberg snapshots/manifests).</div>
+
+<h2 id="trouble">Troubleshooting</h2>
+<div class="card">
+  <b>"network lakehouse not found"</b> — run <code>docker network create lakehouse</code>, then the three <code>up</code> commands again.<br><br>
+  <b>Airflow shows no DAGs yet</b> — wait ~20 s after startup; the scheduler rescans DAGs every 10 s.<br><br>
+  <b><code>order_events</code> count not growing</b> — trigger <code>streaming_supervisor</code> once and check
+  <code>docker exec spark-master tail -n 30 /tmp/streaming_ingest.log</code>.<br><br>
+  <b>Spark jobs fail with <code>Service failed: 500</code> after a Docker/PC restart</b> — the Iceberg
+  catalog can come back in a bad state after an unclean shutdown. Run
+  <code>docker restart iceberg-rest</code>, then re-trigger the DAG. If the streaming job died during the
+  outage, <code>streaming_supervisor</code> restarts it automatically on its next 10-minute run.<br><br>
+  <b>Port already in use</b> — something on your machine holds 8090 / 9000 / 9001 / 8181 / 29092; stop it or change the published port in the relevant compose file.<br><br>
+  <b>After a reboot</b> — just run the three <code>docker compose … up -d</code> commands again; all data survives in Docker volumes.
+</div>
+
+<h2 id="stop">Shutdown</h2>
+<pre><code>docker compose -f orchestration/docker-compose.yml down
+docker compose -f streaming/docker-compose.yml down
+docker compose -f processing/docker-compose.yml down</code></pre>
+<div class="note"><b>Note:</b> add <code>-v</code> to also wipe the data volumes (fresh start next time).
+The credentials in this guide are local development defaults — fine for the demo, never for production.</div>
+
+</div>
+</body>
+</html>
