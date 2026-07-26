@@ -10,6 +10,7 @@ services:
       - "9000:9000"   # S3 API
       - "9001:9001"   # web console
     command: ["server", "/data", "--console-address", ":9001"]
+    restart: unless-stopped
     volumes:
       - minio-data:/data
     healthcheck:
@@ -45,6 +46,7 @@ services:
       CATALOG_IO__IMPL: org.apache.iceberg.aws.s3.S3FileIO
       CATALOG_S3_ENDPOINT: http://minio:9000
       CATALOG_S3_PATH__STYLE__ACCESS: "true"
+    restart: unless-stopped
     ports:
       - "8181:8181"
 
@@ -65,6 +67,7 @@ services:
       - "4040:4040"   # Spark UI of the running application
     # keep the container alive; all Spark applications are submitted into THIS container only
     entrypoint: ["/bin/bash", "-c", "tail -f /dev/null"]
+    restart: unless-stopped
 
 volumes:
   minio-data:

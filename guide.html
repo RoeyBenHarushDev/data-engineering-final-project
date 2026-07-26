@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מדריך בדיקת המערכת — Lakehouse למסחר אלקטרוני</title>
+<style>
+  :root {
+    --bg: #f7f8fa; --card: #ffffff; --text: #1c2330; --muted: #5b6474;
+    --accent: #1f6feb; --ok: #1a7f37; --warn: #9a6700; --border: #d8dee6;
+    --code-bg: #0f172a; --code-text: #e2e8f0; --chip: #eef2f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --card: #161b22; --text: #e6edf3; --muted: #9aa4b2;
+      --accent: #4493f8; --ok: #3fb950; --warn: #d29922; --border: #30363d;
+      --code-bg: #010409; --code-text: #dbe4ee; --chip: #21262d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.7 "Segoe UI", system-ui, sans-serif;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 1.9rem; margin: 0 0 4px; }
+  .subtitle { color: var(--muted); margin-bottom: 28px; }
+  h2 {
+    font-size: 1.25rem; margin: 40px 0 12px; padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+  }
+  h2 .n {
+    display: inline-block; background: var(--accent); color: #fff;
+    border-radius: 50%; width: 28px; height: 28px; text-align: center;
+    line-height: 28px; font-size: .95rem; margin-left: 8px;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px; margin: 14px 0;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: right; }
+  th { background: var(--chip); }
+  code {
+    background: var(--chip); padding: 2px 6px; border-radius: 5px;
+    font: .88em Consolas, monospace;
+    direction: ltr; unicode-bidi: embed;
+  }
+  pre {
+    background: var(--code-bg); color: var(--code-text); padding: 14px 16px;
+    border-radius: 8px; overflow-x: auto; font: .85rem/1.55 Consolas, monospace;
+    direction: ltr; text-align: left;
+  }
+  pre code { background: none; padding: 0; color: inherit; }
+  .expect {
+    border-right: 4px solid var(--ok); background: var(--card);
+    border-radius: 8px 0 0 8px; padding: 10px 14px; margin: 10px 0;
+  }
+  .expect b { color: var(--ok); }
+  .note {
+    border-right: 4px solid var(--warn); background: var(--card);
+    border-radius: 8px 0 0 8px; padding: 10px 14px; margin: 10px 0;
+  }
+  .note b { color: var(--warn); }
+  a { color: var(--accent); }
+  .toc { columns: 2; gap: 30px; }
+  .toc a { text-decoration: none; }
+  @media (max-width: 640px) { .toc { columns: 1; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>מדריך בדיקת המערכת</h1>
+<p class="subtitle">Lakehouse למסחר אלקטרוני — Kafka · Spark · Iceberg · MinIO · Airflow.
+יש לעקוב אחרי השלבים לפי הסדר; בכל שלב מצוין בדיוק מה אמורים לראות אם המערכת עובדת כמו שצריך.</p>
+
+<div class="card">
+  <b>פרטי התחברות וכתובות (הכול רץ מקומית)</b>
+  <table>
+    <tr><th>שירות</th><th>כתובת</th><th>שם משתמש</th><th>סיסמה</th></tr>
+    <tr><td>ממשק Airflow</td><td><a href="http://localhost:8090">http://localhost:8090</a></td><td><code>admin</code></td><td><code>admin</code></td></tr>
+    <tr><td>קונסולת MinIO</td><td><a href="http://localhost:9001">http://localhost:9001</a></td><td><code>admin</code></td><td><code>password</code></td></tr>
+    <tr><td>קטלוג Iceberg REST</td><td><a href="http://localhost:8181/v1/config">http://localhost:8181/v1/config</a></td><td colspan="2">ללא הזדהות (תשובת JSON = תקין)</td></tr>
+    <tr><td>ממשק Spark</td><td><a href="http://localhost:4040">http://localhost:4040</a></td><td colspan="2">ללא הזדהות (זמין רק בזמן ריצת Job)</td></tr>
+    <tr><td>Kafka (מהמחשב המארח)</td><td><code>localhost:29092</code></td><td colspan="2">ללא הזדהות (PLAINTEXT)</td></tr>
+  </table>
+</div>
+
+<h2>תוכן עניינים</h2>
+<div class="toc card">
+  <a href="#start">1. הפעלת המערכת</a><br>
+  <a href="#containers">2. בדיקת כל הקונטיינרים</a><br>
+  <a href="#kafka">3. Kafka וה־Producer</a><br>
+  <a href="#airflow">4. Airflow ושני ה־DAGs</a><br>
+  <a href="#streaming">5. הזרמת נתונים ל־Bronze</a><br>
+  <a href="#batch">6. ריצת Batch ושכבות הנתונים</a><br>
+  <a href="#late">7. טיפול בנתונים מאחרים</a><br>
+  <a href="#scd2">8. הדגמת SCD2</a><br>
+  <a href="#dq">9. בדיקות איכות נתונים ו־Great Expectations</a><br>
+  <a href="#minio">10. הקבצים ב־MinIO</a><br>
+  <a href="#trouble">פתרון תקלות</a><br>
+  <a href="#stop">כיבוי המערכת</a>
+</div>
+
+<h2 id="start"><span class="n">1</span>הפעלת המערכת</h2>
+<p>מתיקיית שורש הפרויקט (אפשר לדלג על הפקודה הראשונה אם הרשת כבר קיימת):</p>
+<pre><code>docker network create lakehouse
+docker compose -f processing/docker-compose.yml up -d --build
+docker compose -f streaming/docker-compose.yml up -d --build
+docker compose -f orchestration/docker-compose.yml up -d --build</code></pre>
+<div class="expect"><b>תוצאה צפויה:</b> ללא שגיאות; ה־build הראשון לוקח כמה דקות, הפעלות חוזרות לוקחות שניות.</div>
+
+<h2 id="containers"><span class="n">2</span>בדיקת כל הקונטיינרים</h2>
+<pre><code>docker ps --format "{{.Names}}: {{.Status}}"</code></pre>
+<div class="expect"><b>תוצאה צפויה — 7 קונטיינרים רצים:</b> <code>spark-master</code>, <code>iceberg-rest</code>,
+<code>minio</code> (healthy), <code>kafka</code> (healthy), <code>order-events-producer</code>,
+<code>airflow-webserver</code>, <code>airflow-scheduler</code>, ובנוסף <code>airflow-db</code> (healthy).
+קונטיינרים בשם <code>*-init</code> מסיימים עם קוד 0 — זה תקין, הם משימות הקמה חד־פעמיות.</div>
+
+<h2 id="kafka"><span class="n">3</span>Kafka וה־Producer</h2>
+<p>ה־Producer שולח אירועי מחזור חיים של הזמנות (created ← paid ← shipped ← completed) באופן רציף:</p>
+<pre><code>docker logs --tail 5 order-events-producer</code></pre>
+<div class="expect"><b>תוצאה צפויה:</b> שורות כמו <code>150 events sent (last: ORD-S… shipped at …)</code>.</div>
+<p>קריאת הודעות ישירות מה־Topic:</p>
+<pre><code>docker exec kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic orders_events --from-beginning --max-messages 3 --timeout-ms 15000</code></pre>
+<div class="expect"><b>תוצאה צפויה:</b> שלושה אירועי JSON עם <code>event_id</code>, <code>order_id</code>, <code>status</code>, <code>event_time</code>.</div>
+
+<h2 id="airflow"><span class="n">4</span>Airflow ושני ה־DAGs</h2>
+<ol>
+  <li>פותחים את <a href="http://localhost:8090">http://localhost:8090</a> ומתחברים עם <code>admin</code> / <code>admin</code>.</li>
+  <li>אמורים להופיע שני DAGs: <code>batch_etl</code> ו־<code>streaming_supervisor</code>.</li>
+  <li>מפעילים את שניהם באמצעות המתג בצד.</li>
+  <li>מריצים קודם את <code>streaming_supervisor</code> (כפתור ▶), ואחר כך את <code>batch_etl</code>.</li>
+</ol>
+<div class="expect"><b>תוצאה צפויה:</b> <code>streaming_supervisor</code> נהיה ירוק תוך כ־30 שניות
+(2 משימות: <code>check_processing_container</code> ← <code>ensure_streaming_job_running</code>).
+<code>batch_etl</code> נהיה ירוק תוך כ־5–6 דקות (7 משימות:
+<code>load_batch_sources → dq_bronze → bronze_to_silver → dq_silver → silver_to_gold → dq_gold → great_expectations_validation</code>).</div>
+<div class="note"><b>הערה:</b> כל משימה מריצה <code>spark-submit</code> בתוך הקונטיינר
+<code>spark-master</code> באמצעות <code>docker exec</code> — אפשר לראות זאת בלוג של כל משימה בממשק Airflow;
+אף תהליך Spark לא רץ על הקונטיינרים של Airflow.</div>
+
+<h2 id="streaming"><span class="n">5</span>הזרמת נתונים ל־Bronze</h2>
+<p>אחרי ריצה אחת של <code>streaming_supervisor</code>, ה־Job של הסטרימינג כותב אירועים מ־Kafka ל־Iceberg כל 30 שניות:</p>
+<pre><code>docker exec spark-master tail -n 5 /tmp/streaming_ingest.log</code></pre>
+<div class="expect"><b>תוצאה צפויה:</b> שורות לוג עדכניות; חפשו שורות <code>Committed snapshot</code> (קומיטים ל־Iceberg).</div>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py bronze</code></pre>
+<div class="expect"><b>תוצאה צפויה:</b> <code>customers_raw (500)</code>, <code>products_raw (100)</code>,
+<code>orders_raw (5001)</code>, וטבלת <code>order_events</code> עם מונה שגדל — הריצו פעמיים בהפרש דקה
+והמספר יעלה. זה הסטרים החי שנוחת ב־Lake.</div>
+
+<h2 id="batch"><span class="n">6</span>ריצת Batch ושכבות הנתונים</h2>
+<p>אחרי ריצה ירוקה של <code>batch_etl</code>, בודקים את שכבות ה־Silver וה־Gold:</p>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py silver
+docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py gold</code></pre>
+<div class="expect"><b>צפוי ב־Silver:</b> <code>customers (500)</code>, <code>products (100)</code>,
+<code>orders</code> (בגדילה מתמדת עם הסטרים), <code>order_events</code>, <code>order_events_rejected</code>.<br>
+<b>צפוי ב־Gold:</b> <code>dim_customer</code>, <code>dim_product (100)</code>, <code>dim_date (365)</code>,
+<code>fact_orders</code> (זהה במספרו ל־silver.orders), <code>daily_sales</code>.</div>
+<div class="note"><b>הוכחת ניקוי נתונים:</b> ב־<code>orders_raw</code> שב־Bronze יש 5001 שורות אבל ב־Silver
+מגיעות פחות מה־Batch — נתוני המקור מכילים בכוונה כמות שלילית, מזהה לקוח חסר, סכום שלילי
+ומזהה הזמנה כפול; שכבת ה־Silver מסננת את כולם.</div>
+
+<h2 id="late"><span class="n">7</span>טיפול בנתונים מאחרים (חוק 48 השעות)</h2>
+<p>ה־Producer שולח בכוונה כ־15% אירועים בני 1–47 שעות (חייבים <em>להתקבל</em>) וכ־5% אירועים
+בני יותר מ־48 שעות (חייבים לעבור <em>להסגר</em>):</p>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py silver</code></pre>
+<div class="expect"><b>תוצאה צפויה:</b> הטבלה <code>silver.order_events_rejected</code> אינה ריקה; בכל שורה
+<code>lateness_hours &gt; 48</code> עם הסיבה <i>"arrived more than 48h after event_time"</i>.
+ב־<code>silver.order_events</code> כל השורות עם <code>lateness_hours ≤ 48</code>.</div>
+
+<h2 id="scd2"><span class="n">8</span>הדגמת SCD2 (היסטוריית ממד הלקוחות)</h2>
+<ol>
+  <li>ב־Airflow פותחים את <code>batch_etl</code> ← ▶ ← <b>Trigger DAG w/ config</b>.</li>
+  <li>מדביקים <code>{"snapshot": "day2"}</code> ומריצים. ב־Day 2 יש כ־40 לקוחות שעברו עיר או שינו סגמנט.</li>
+  <li>כשהריצה ירוקה:</li>
+</ol>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py gold</code></pre>
+<div class="expect"><b>תוצאה צפויה:</b> <code>gold.dim_customer</code> גדלה ל־540 שורות — 500 גרסאות נוכחיות
+(<code>is_current = true</code>) ו־40 גרסאות היסטוריות סגורות עם <code>effective_to</code> מלא.
+הזמנות ישנות ממשיכות להצביע על הגרסה ההיסטורית — וזו בדיוק המהות של SCD Type 2.</div>
+
+<h2 id="dq"><span class="n">9</span>בדיקות איכות נתונים ו־Great Expectations</h2>
+<pre><code>docker exec spark-master spark-submit --master "local[*]" /opt/spark/jobs/show_tables.py audit</code></pre>
+<div class="expect"><b>תוצאה צפויה:</b> <code>audit.dq_results</code> — שורה לכל בדיקה בכל ריצה
+(בדיקות ה־Bronze כוללות ממצאי WARN על השורות הפגומות שהושתלו בכוונה; בדיקות Silver/Gold כולן
+<code>passed = true</code>). <code>audit.ge_results</code> — 15 תוצאות Great Expectations לכל ריצה, כולן
+<code>success = true</code>.</div>
+<div class="note"><b>בדיקה שלילית (רשות):</b> שערי האיכות באמת חוסמים — אם בדיקת ERROR בשכבת Silver
+תיכשל אי פעם, ה־DAG נעצר לפני Gold ושם הבדיקה הכושלת מופיע בלוג המשימה.</div>
+
+<h2 id="minio"><span class="n">10</span>הקבצים ב־MinIO (ה־Lake הפיזי)</h2>
+<ol>
+  <li>פותחים את <a href="http://localhost:9001">http://localhost:9001</a>, מתחברים עם <code>admin</code> / <code>password</code>.</li>
+  <li>מנווטים ל־Bucket בשם <code>warehouse</code>.</li>
+</ol>
+<div class="expect"><b>תוצאה צפויה:</b> תיקייה לכל Namespace‏ (<code>bronze</code>, <code>silver</code>,
+<code>gold</code>, <code>audit</code>), ובכל טבלה — <code>data/</code> (קובצי Parquet) ו־<code>metadata/</code>
+(קובצי Snapshots/Manifests של Iceberg).</div>
+
+<h2 id="trouble">פתרון תקלות</h2>
+<div class="card">
+  <b>"network lakehouse not found"</b> — מריצים <code>docker network create lakehouse</code> ואז שוב את שלוש פקודות ה־<code>up</code>.<br><br>
+  <b>Airflow עדיין לא מציג DAGs</b> — ממתינים כ־20 שניות אחרי ההפעלה; ה־Scheduler סורק את תיקיית ה־DAGs כל 10 שניות.<br><br>
+  <b>המונה של <code>order_events</code> לא גדל</b> — מריצים פעם אחת את <code>streaming_supervisor</code> ובודקים עם
+  <code>docker exec spark-master tail -n 30 /tmp/streaming_ingest.log</code>.<br><br>
+  <b>ריצות Spark נכשלות עם <code>Service failed: 500</code> אחרי ריסטארט של Docker או של המחשב</b> — קטלוג
+  ה־Iceberg עלול לחזור במצב פגום אחרי כיבוי לא נקי. מריצים
+  <code>docker restart iceberg-rest</code> ומפעילים שוב את ה־DAG. אם ה־Job של הסטרימינג נפל בזמן התקלה,
+  <code>streaming_supervisor</code> יפעיל אותו מחדש אוטומטית בריצה הבאה שלו (כל 10 דקות).<br><br>
+  <b>פורט תפוס</b> — תהליך אחר במחשב מחזיק את 8090 / 9000 / 9001 / 8181 / 29092; עוצרים אותו או משנים את הפורט המפורסם בקובץ ה־Compose הרלוונטי.<br><br>
+  <b>אחרי ריסטארט למחשב</b> — פשוט מריצים שוב את שלוש פקודות ה־<code>docker compose … up -d</code>; כל הנתונים נשמרים ב־Docker Volumes.
+</div>
+
+<h2 id="stop">כיבוי המערכת</h2>
+<pre><code>docker compose -f orchestration/docker-compose.yml down
+docker compose -f streaming/docker-compose.yml down
+docker compose -f processing/docker-compose.yml down</code></pre>
+<div class="note"><b>הערה:</b> הוספת <code>-v</code> מוחקת גם את ה־Volumes של הנתונים (התחלה נקייה בפעם הבאה).
+פרטי ההתחברות במדריך הזה הם ברירות מחדל לפיתוח מקומי — מתאימים להדגמה, לעולם לא לפרודקשן.</div>
+
+</div>
+</body>
+</html>
