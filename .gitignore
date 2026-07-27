@@ -16,8 +16,7 @@ checkpoints/
 .DS_Store
 Thumbs.db
 
-# local tooling / course handouts (not part of the submission)
-.claude/
+# course handouts (not part of the submission)
 *.pdf
 
 # packed submissions

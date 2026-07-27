@@ -52,9 +52,9 @@ Status legend: [x] DONE (verified end-to-end locally on 2026-07-20)
 - [x] D4. Component descriptions — `docs/components.md`
 - [x] D5. Data quality checks documented — `docs/data_quality.md`
 - [x] D6. Initial data committed — `processing/data/*.csv` (regenerable via `generate_initial_data.py`)
-- [x] D7. Git: feature-branch workflow (`develop`), 12 granular commits — push to GitHub + keep committing over time (USER ACTION)
-- [ ] D8. Presentation video, 10 min (USER ACTION — cannot be automated)
-- [ ] D9. Demo video end-to-end without cuts (USER ACTION — cannot be automated)
+- [x] D7. Git: feature-branch workflow (`develop`), granular commits, pushed to GitHub
+- [x] D8. Presentation video, 10 min — linked in SUBMISSION.md
+- [x] D9. Demo video end-to-end without cuts — linked in SUBMISSION.md
 
 ### Bonus
 - [x] B1. Great Expectations — `ge_quality.py`, 15 expectations over silver+gold (verified: 30 results in `audit.ge_results`)
