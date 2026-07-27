@@ -1,0 +1,18 @@
+פרויקט גמר - הנדסת נתונים
+מגיש: רועי
+=========================================
+
+כל קישורי ההגשה נמצאים כאן:
+
+1) ריפו GitHub (קוד + תיעוד + הוראות הרצה):
+   https://github.com/RoeyBenHarushDev/data-engineering-final-project
+
+2) סרטון מצגת (10 דקות) - קובץ Presentation_Video.mp4 בתיקייה:
+   https://drive.google.com/drive/folders/1HwHsZXhQaBp6Miw_JuNIOBQ3qw-VG7Bm?usp=sharing
+
+3) סרטון דמו (מקצה לקצה, ללא חיתוכים) - קובץ Demo_Video.mp4 באותה תיקייה:
+   https://drive.google.com/drive/folders/1HwHsZXhQaBp6Miw_JuNIOBQ3qw-VG7Bm?usp=sharing
+
+=========================================
+איך מריצים את הפרויקט: קובץ README.md (בשורש הריפו/ה-ZIP)
+מדריך אימות מפורט בעברית: קובץ guide.html
