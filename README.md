@@ -1,5 +1,12 @@
 # E-commerce Lakehouse — Data Engineering Final Project
 
+> ### 📋 Submission links
+> | Deliverable | Link |
+> |---|---|
+> | **GitHub repository** | https://github.com/RoeyBenHarushDev/data-engineering-final-project |
+> | **Presentation video (10 min)** | [Google Drive — Presentation_Video.mp4](https://drive.google.com/drive/folders/1HwHsZXhQaBp6Miw_JuNIOBQ3qw-VG7Bm?usp=sharing) |
+> | **Demo video (end-to-end, no cuts)** | [Google Drive — Demo_Video.mp4](https://drive.google.com/drive/folders/1HwHsZXhQaBp6Miw_JuNIOBQ3qw-VG7Bm?usp=sharing) |
+
 End-to-end pipeline: order history (batch CSV) and real-time order events (Kafka)
 land in an Iceberg lakehouse on MinIO, get refined bronze → silver → gold by Spark,
 orchestrated by Airflow, with data quality gates at every stage.
